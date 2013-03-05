@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.action.extension" value="do,action"></constant>
+	<package name="default" extends="struts-default">
+		<interceptors>
+			<interceptor name="myInterceptor" 
+				class="net.teddy.control.interceptor.SessionInterceptor" />
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="myInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack> 
+		</interceptors>
+		<default-interceptor-ref name="myStack"/>
+		<action name="index"  class="net.teddy.control.action.MainIndexAction" method="execute">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+</struts>    
