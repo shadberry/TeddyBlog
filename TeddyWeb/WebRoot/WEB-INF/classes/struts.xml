@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<constant name="struts.action.extension" value="do,action"></constant>
+	<!-- 如果用户需要指定多个请求后缀,则多个后缀之间以英文逗号(,)隔开 -->
+    <constant name="struts.action.extension" value="do,action"></constant>
+
+    <!-- 指定默认编码集,使用于HttpServletRequest的setCharacterEncoding方法,和freemarker ,velocity 的输出 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+    <!-- 设置浏览器是否缓存静态内容,默认值为true(部署阶段开启(true)), 开发阶段最好关闭 -->
+    <constant name="struts.serve.static.browserCache" value="false" />
+
+    <!--
+        当struts.xml 的配置文件修改后,系统是否自动重新加载该文件,
+        默认为false(部署阶段开启(false)), 开发阶段最好打开.
+    -->
+    <constant name="struts.configuration.xml.reload" value="true" />
+
+    <!-- 在开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="true" />
+
+    <!-- 默认的视图主题  -->
+    <constant name="struts.ui.theme" value="simple" />
+   
+    <!-- 该属性设置struts2是否支持动态方法调用,该值默认为:true,如果要关闭动态方法调用,则可以设置为:false -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+   
+    <!-- 设置上传文件的大小限制 -->
+    <constant name="struts.multipart.maxSize" value="10701096" /> 
 	<package name="default" extends="struts-default">
 		<interceptors>
-			<interceptor name="myInterceptor" 
+			<interceptor name="authInterceptor" 
 				class="net.teddy.control.interceptor.SessionInterceptor" />
-			<interceptor-stack name="myStack">
-				<interceptor-ref name="myInterceptor" />
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="authInterceptor" />
 				<interceptor-ref name="defaultStack" />
-			</interceptor-stack> 
+			</interceptor-stack>
 		</interceptors>
-		<default-interceptor-ref name="myStack"/>
+		<default-interceptor-ref name="authStack"/>
 		<action name="index"  class="net.teddy.control.action.MainIndexAction" method="execute">
-			<interceptor-ref name="myStack"></interceptor-ref>
+			<param name="articleList"></param>
 			<result name="success">/index.jsp</result>
 		</action>
 	</package>

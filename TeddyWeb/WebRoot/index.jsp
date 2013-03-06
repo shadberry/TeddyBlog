@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -97,6 +98,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<!-- BEGIN Left Column Container -->
 		<div id="lcont">
+			<%System.out.println(1); 
+				System.out.println(request.getAttribute("articleList"));
+			%>
+			<s:iterator status="status" value="#request.articleList"  id="article">
+				<!-- BEGIN Article, Post, Product, Item... -->
+				<div class="post">
+					<!-- BEGIN item's title -->
+					<a href="#" class="post_title"><s:property value='#article.title'/></a>
+					<!-- BEGIN item's info: date, author... -->
+					<span class="date"><s:property value="#article.createddate"/> Posted by: designer, 20 comments</span>
+					<!-- BEGIN item's content -->
+					<p>
+						<s:property value="#article.summary" />
+					</p>
+					<br class="clr"/>
+					<!-- Read More button -->
+					<div class="read_post"><a href="#">Read More ...</a></div>
+					<hr/>
+				</div> 
+			</s:iterator>
 			<!-- BEGIN Article, Post, Product, Item... -->
 			<div class="post">
 				<!-- BEGIN item's title -->
