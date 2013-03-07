@@ -3,6 +3,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+System.out.println(path);
+System.out.println(basePath);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>free-css-templates-289</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath %>css/style.css" rel="stylesheet" type="text/css" />
 	<!-- IE fixes -->
 	<!--[if lte IE 6]>
 	<style type="text/css">
@@ -98,14 +100,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<!-- BEGIN Left Column Container -->
 		<div id="lcont">
-			<%System.out.println(1); 
-				System.out.println(request.getAttribute("articleList"));
-			%>
 			<s:iterator status="status" value="#request.articleList"  id="article">
 				<!-- BEGIN Article, Post, Product, Item... -->
 				<div class="post">
 					<!-- BEGIN item's title -->
-					<a href="#" class="post_title"><s:property value='#article.title'/></a>
+					<a href="${basePath }showArticle.do?id=${article.id}" class="post_title"><s:property value='#article.title'/></a>
 					<!-- BEGIN item's info: date, author... -->
 					<span class="date"><s:property value="#article.createddate"/> Posted by: designer, 20 comments</span>
 					<!-- BEGIN item's content -->

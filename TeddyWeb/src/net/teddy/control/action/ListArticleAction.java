@@ -13,7 +13,7 @@ import net.teddy.service.impl.ArticleService;
 
 import com.opensymphony.xwork2.Action;
 
-public class MainIndexAction implements Action, RequestAware {
+public class ListArticleAction implements Action, RequestAware {
 
 	private static ArticleService  articleService = new ArticleService(); 
 	
@@ -31,12 +31,12 @@ public class MainIndexAction implements Action, RequestAware {
 		}
 		articleList  = articleService.findAll();
 		System.out.println(articleList.size());
-		request.put("articleList", articleList);
+//		request.put("articleList", articleList);
 		return success;
 	}
-
-	public void setArticleList(List<TArticle> articleList) {
-		this.articleList = articleList;
+	
+	public List<TArticle> getArticleList() {
+		return articleList;
 	}
 
 	@Override

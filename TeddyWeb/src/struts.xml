@@ -28,6 +28,7 @@
     <!-- 设置上传文件的大小限制 -->
     <constant name="struts.multipart.maxSize" value="10701096" /> 
 	<package name="default" extends="struts-default">
+		<!-- 拦截器 -->
 		<interceptors>
 			<interceptor name="authInterceptor" 
 				class="net.teddy.control.interceptor.SessionInterceptor" />
@@ -37,9 +38,13 @@
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="authStack"/>
-		<action name="index"  class="net.teddy.control.action.MainIndexAction" method="execute">
-			<param name="articleList"></param>
-			<result name="success">/index.jsp</result>
+		
+		<!-- actions -->
+		<action name="index"  class="net.teddy.control.action.ListArticleAction" method="execute">
+			<result name="success">/article/ListArticle.jsp</result>
+		</action>
+		<action name="*Article"  class="net.teddy.control.action.ArticleAction" method="{1}">
+			<result name="success">/article/{1}Article.jsp</result>
 		</action>
 	</package>
 </struts>    
