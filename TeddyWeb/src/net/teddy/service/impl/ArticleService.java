@@ -14,7 +14,7 @@ public class ArticleService implements IService{
 	public void reconfiguration() { }
 	
 	/**
-	 * 查询所有的文档信息
+	 * find all articles
 	 * @return
 	 */
 	public List<TArticle> findAll() {
@@ -22,7 +22,7 @@ public class ArticleService implements IService{
 	}
 	
 	/**
-	 * 根据ID获取文档信息
+	 * find article by id
 	 * @param id
 	 * @return
 	 */

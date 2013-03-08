@@ -31,5 +31,7 @@ CREATE TABLE blog.T_ARTICLE (
 	SUMMARY VARCHAR(500), -- 摘要
 	CONTENT BLOB, -- 内容
 	createddate DATE, -- 创建日期
+	createduserid INTEGER, -- 创建者
 	modifydate DATE -- 修改日期
+	modifyuserid INTEGER -- 修改者
 );
