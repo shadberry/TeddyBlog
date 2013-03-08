@@ -30,6 +30,7 @@
 	<package name="default" extends="struts-default">
 		<!-- 拦截器 -->
 		<interceptors>
+			<!-- Authorization 权限校验 -->
 			<interceptor name="authInterceptor" 
 				class="net.teddy.control.interceptor.SessionInterceptor" />
 			<interceptor-stack name="authStack">
