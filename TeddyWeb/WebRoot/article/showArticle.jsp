@@ -3,8 +3,6 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-System.out.println(path);
-System.out.println(basePath);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -103,23 +101,13 @@ System.out.println(basePath);
 			<!-- BEGIN Article, Post, Product, Item... -->
 			<div class="post">
 				<!-- BEGIN item's title -->
-				<a href="#" class="post_title">Logo Design Process Tutorial</a>
+				<a href="#" class="post_title">${article.title }</a>
 				<!-- BEGIN item's info: date, author... -->
-				<span class="date">February 28th, 2009 Posted by: designer, 20 comments</span>
+				<span class="date">${article.createddate } Posted by: designer, 20 comments</span>
 				
 				<!-- BEGIN item's content -->
-				<p><a href="#"><img border="0" alt="Logo design tutorial by DryIcons" src="images/tutorial_index.jpg"/></a></p>
-				<p><strong><span style="font-size: 14pt;">Introduction</span></strong></p>
 				<p>
-				One of the main aspects of the branding process includes logo development. Your logo, or <em>brand mark</em>, in other words, needs to reflect your brand accurately, as it will play a huge role in your brand recognition. This however doesn't mean that the branding process ends when you've developed your logo, branding takes a lot of time, commitment, managing skills and finally, the ability to reflect the image you want others to have of you and your business</p>
-				<p>This tutorial is intended to benefit both our potential <em>clients</em>, so they can have a fully comprehensive overview of our logo design process and methods; and many of our <em>users</em>, interested in the process of designing and developing a logo.</p>
-				<p>For the purpose of this tutorial, we're going to design and develop a logo for an imaginary company, called "LTD", short from Logo Tutorial by DryIcons.</p>
-				<!-- More  -->
-				<p>
-				<b>More:</b>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum, nisi ut ornare elementum, leo ipsum bibendum orci, id dapibus urna erat at nisi. Nullam eros. Morbi consequat euismod elit. Aenean sit amet ipsum sit amet diam vulputate aliquam. Nunc scelerisque sodales metus. Fusce iaculis vehicula nisi. Sed non nisl. Donec consequat aliquet urna. Sed malesuada consectetur arcu. Integer nec nisl pulvinar leo volutpat feugiat. Proin consectetur orci sit amet orci.</p>
-				<p>
-				Morbi laoreet auctor mauris. Curabitur sed sapien. Nam magna metus, bibendum in, semper vitae, venenatis eget, turpis. Sed consectetur, nulla ut lacinia venenatis, neque arcu pretium augue, nec rhoncus augue nibh id quam. Vestibulum luctus leo sed leo. Etiam tristique, lacus eget sagittis porta, mi elit feugiat augue, in dignissim felis ligula quis est. Nunc venenatis, dui sit amet posuere rutrum, erat velit tempor felis, et posuere velit lectus pharetra elit. Etiam gravida interdum quam. Curabitur eleifend velit quis risus. Morbi mattis luctus lacus. Maecenas id metus. Duis vitae diam bibendum tortor sollicitudin tincidunt. Aenean elementum tristique justo. Pellentesque imperdiet tincidunt quam. Curabitur eleifend euismod ante. In hac habitasse platea dictumst. Integer malesuada pharetra lacus. Mauris laoreet luctus tellus. In pellentesque.
+				${article.content }
 				</p>
 				<br class="clr" />
 				<div class="view_comments">

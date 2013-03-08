@@ -58,7 +58,7 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		log.debug("getting TVisitor instance with id: " + id);
 		try {
 			TVisitor instance = (TVisitor) getSession().get(
-					"net.teddy.dao.TVisitor", id);
+					"net.teddy.model.impl.TVisitor", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -70,7 +70,7 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		log.debug("finding TVisitor instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("net.teddy.dao.TVisitor")
+					.createCriteria("net.teddy.model.impl.TVisitor")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

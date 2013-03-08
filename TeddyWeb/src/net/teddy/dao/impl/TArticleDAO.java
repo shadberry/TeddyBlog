@@ -57,7 +57,7 @@ public class TArticleDAO extends BaseHibernateDAO {
 		log.debug("getting TArticle instance with id: " + id);
 		try {
 			TArticle instance = (TArticle) getSession().get(
-					"net.teddy.dao.TArticle", id);
+					"net.teddy.model.impl.TArticle", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -69,7 +69,7 @@ public class TArticleDAO extends BaseHibernateDAO {
 		log.debug("finding TArticle instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("net.teddy.dao.TArticle")
+					.createCriteria("net.teddy.model.impl.TArticle")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

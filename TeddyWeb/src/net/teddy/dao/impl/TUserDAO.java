@@ -60,7 +60,7 @@ public class TUserDAO extends BaseHibernateDAO {
 		log.debug("getting TUser instance with id: " + id);
 		try {
 			TUser instance = (TUser) getSession()
-					.get("net.teddy.dao.TUser", id);
+					.get("net.teddy.model.impl.TUser", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -71,7 +71,7 @@ public class TUserDAO extends BaseHibernateDAO {
 	public List findByExample(TUser instance) {
 		log.debug("finding TUser instance by example");
 		try {
-			List results = getSession().createCriteria("net.teddy.dao.TUser")
+			List results = getSession().createCriteria("net.teddy.model.impl.TUser")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
