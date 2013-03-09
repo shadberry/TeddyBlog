@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta content="true" name="mssmarttagspreventparsing" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>free-css-templates-289</title>
+	<title>Teddy' Blog</title>
 	<link href="<%=basePath %>css/style.css" rel="stylesheet" type="text/css" />
 	<!-- IE fixes -->
 	<!--[if lte IE 6]>
@@ -111,14 +111,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</p>
 					<br class="clr"/>
 					<!-- Read More button -->
-					<div class="read_post"><a href="#">Read More ...</a></div>
+					<div class="read_post"><a href="${basePath }showArticle.do?id=${article.id}">Read More ...</a></div>
 					<hr/>
 				</div> 
 			</s:iterator>
 			<!-- BEGIN Article, Post, Product, Item... -->
 			<div class="post">
 				<!-- BEGIN item's title -->
-				<a href="#" class="post_title">Logo Design Process Tutorial</a>
+				<a href="${basePath }article.html" class="post_title">Logo Design Process Tutorial</a>
 				<!-- BEGIN item's info: date, author... -->
 				<span class="date">February 28th, 2009 Posted by: designer, 20 comments</span>
 				

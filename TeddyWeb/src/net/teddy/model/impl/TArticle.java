@@ -1,14 +1,12 @@
 package net.teddy.model.impl;
 
-import java.util.Date;
-
-import net.teddy.model.interfaces.IVo;
+import java.sql.Timestamp;
 
 /**
  * TArticle entity. @author MyEclipse Persistence Tools
  */
 
-public class TArticle implements java.io.Serializable, IVo {
+public class TArticle implements java.io.Serializable {
 
 	// Fields
 
@@ -16,8 +14,10 @@ public class TArticle implements java.io.Serializable, IVo {
 	private String title;
 	private String summary;
 	private String content;
-	private Date createddate;
-	private Date modifydate;
+	private Timestamp createddate;
+	private Integer creatorId;
+	private Timestamp modifydate;
+	private Integer modifierId;
 
 	// Constructors
 
@@ -32,12 +32,15 @@ public class TArticle implements java.io.Serializable, IVo {
 
 	/** full constructor */
 	public TArticle(String title, String summary, String content,
-			Date createddate, Date modifydate) {
+			Timestamp createddate, Integer creatorId, Timestamp modifydate,
+			Integer modifierId) {
 		this.title = title;
 		this.summary = summary;
 		this.content = content;
 		this.createddate = createddate;
+		this.creatorId = creatorId;
 		this.modifydate = modifydate;
+		this.modifierId = modifierId;
 	}
 
 	// Property accessors
@@ -74,20 +77,36 @@ public class TArticle implements java.io.Serializable, IVo {
 		this.content = content;
 	}
 
-	public Date getCreateddate() {
+	public Timestamp getCreateddate() {
 		return this.createddate;
 	}
 
-	public void setCreateddate(Date createddate) {
+	public void setCreateddate(Timestamp createddate) {
 		this.createddate = createddate;
 	}
 
-	public Date getModifydate() {
+	public Integer getCreatorId() {
+		return this.creatorId;
+	}
+
+	public void setCreatorId(Integer creatorId) {
+		this.creatorId = creatorId;
+	}
+
+	public Timestamp getModifydate() {
 		return this.modifydate;
 	}
 
-	public void setModifydate(Date modifydate) {
+	public void setModifydate(Timestamp modifydate) {
 		this.modifydate = modifydate;
+	}
+
+	public Integer getModifierId() {
+		return this.modifierId;
+	}
+
+	public void setModifierId(Integer modifierId) {
+		this.modifierId = modifierId;
 	}
 
 }

@@ -2,13 +2,11 @@ package net.teddy.model.impl;
 
 import java.sql.Timestamp;
 
-import net.teddy.model.interfaces.IVo;
-
 /**
  * TVisitor entity. @author MyEclipse Persistence Tools
  */
 
-public class TVisitor implements java.io.Serializable, IVo {
+public class TVisitor implements java.io.Serializable {
 
 	// Fields
 

@@ -19,11 +19,17 @@
         <property name="content" type="java.lang.String">
             <column name="CONTENT" />
         </property>
-        <property name="createddate" type="java.util.Date">
-            <column name="createddate" length="10" />
+        <property name="createddate" type="java.sql.Timestamp">
+            <column name="createddate" length="19" />
         </property>
-        <property name="modifydate" type="java.util.Date">
-            <column name="modifydate" length="10" />
+        <property name="creatorId" type="java.lang.Integer">
+            <column name="creatorId" />
+        </property>
+        <property name="modifydate" type="java.sql.Timestamp">
+            <column name="modifydate" length="19" />
+        </property>
+        <property name="modifierId" type="java.lang.Integer">
+            <column name="modifierId" />
         </property>
     </class>
 </hibernate-mapping>

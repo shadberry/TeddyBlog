@@ -3,6 +3,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+System.out.println("@@@@@@@@@@@@@@@");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta content="true" name="mssmarttagspreventparsing" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>free-css-templates-289</title>
+	<title>Teddy' Blog</title>
 	<link href="<%=basePath %>css/style.css" rel="stylesheet" type="text/css" />
 	<!-- IE fixes -->
 	<!--[if lte IE 6]>

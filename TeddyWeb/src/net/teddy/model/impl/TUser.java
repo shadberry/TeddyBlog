@@ -1,12 +1,10 @@
 package net.teddy.model.impl;
 
-import net.teddy.model.interfaces.IVo;
-
 /**
  * TUser entity. @author MyEclipse Persistence Tools
  */
 
-public class TUser implements java.io.Serializable, IVo {
+public class TUser implements java.io.Serializable {
 
 	// Fields
 

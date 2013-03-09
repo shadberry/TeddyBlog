@@ -1,37 +1,39 @@
-#drop table `blog`.`t_article`;
-#drop table `blog`.`t_user`;
-#drop table `blog`.`t_visitor`;
-#drop table `blog`.`userstate`;
--- ÓÃ»§±í
+ï»¿/*
+drop table blog.t_article;
+drop table blog.t_user;
+drop table blog.t_visitor;
+drop table blog.userstate;
+*/
+-- ç”¨æˆ·è¡¨
 CREATE TABLE blog.T_USER (
 	id INT auto_increment NOT NULL PRIMARY KEY,	-- id
-	NAME VARCHAR (50) NOT NULL,	-- ÓÃ»§Ãû³Æ
-	description VARCHAR (500),	-- ÓÃ»§ÃèÊö
-	cellphone VARCHAR (50),	-- µç»°
+	NAME VARCHAR (50) NOT NULL,	-- ç”¨æˆ·åç§°
+	description VARCHAR (500),	-- ç”¨æˆ·æè¿°
+	cellphone VARCHAR (50),	-- ç”µè¯
 	email VARCHAR (50),	-- EMAIL
-	sex VARCHAR (10), -- ĞÔ±ğ
-	username VARCHAR (50) NOT NULL UNIQUE, -- ÕËºÅ
-	PASSWORD VARCHAR (50) NOT NULL -- ÃÜÂë
+	sex VARCHAR (10), -- æ€§åˆ«
+	username VARCHAR (50) NOT NULL UNIQUE, -- è´¦å·
+	PASSWORD VARCHAR (50) NOT NULL -- å¯†ç 
 );
 
--- ·Ã¿Í±í
+-- è®¿å®¢è¡¨
 CREATE TABLE blog.T_VISITOR (
 	id INT auto_increment NOT NULL PRIMARY KEY, -- ID
-	username VARCHAR(50) NOT NULL UNIQUE, -- ·Ã¿ÍÃû³Æ
-	password VARCHAR(50) NOT NULL, -- ÁÙÊ±ÃÜÂë
-	description VARCHAR(500), -- ÃèÊö
-	createddate datetime NOT NULL, -- ´´½¨Ê±¼ä
-	ipaddress VARCHAR(50) -- ipµØÖ·
+	username VARCHAR(50) NOT NULL UNIQUE, -- è®¿å®¢åç§°
+	password VARCHAR(50) NOT NULL, -- ä¸´æ—¶å¯†ç 
+	description VARCHAR(500), -- æè¿°
+	createddate datetime NOT NULL, -- åˆ›å»ºæ—¶é—´
+	ipaddress VARCHAR(50) -- ipåœ°å€
 );
 
--- ÎÄµµ±í
+-- æ–‡æ¡£è¡¨
 CREATE TABLE blog.T_ARTICLE (
 	id INT auto_increment NOT NULL PRIMARY KEY, -- ID
-	TITLE VARCHAR(100) NOT NULL, -- ±êÌâ
-	SUMMARY VARCHAR(500), -- ÕªÒª
-	CONTENT BLOB, -- ÄÚÈİ
-	createddate DATE, -- ´´½¨ÈÕÆÚ
-	createduserid INTEGER, -- ´´½¨Õß
-	modifydate DATE -- ĞŞ¸ÄÈÕÆÚ
-	modifyuserid INTEGER -- ĞŞ¸ÄÕß
+	TITLE VARCHAR(100) NOT NULL, -- æ ‡é¢˜
+	SUMMARY VARCHAR(500), -- æ‘˜è¦
+	CONTENT BLOB, -- å†…å®¹
+	createddate DATETIME, -- åˆ›å»ºæ—¥æœŸ
+	creatorId INTEGER, -- åˆ›å»ºè€…
+	modifydate DATETIME, -- ä¿®æ”¹æ—¥æœŸ
+	modifierId INTEGER -- ä¿®æ”¹è€…
 );
