@@ -10,9 +10,6 @@ public class ArticleService implements IService{
 
 	TArticleDAO articleDAO = new TArticleDAO();
 	
-	@Override
-	public void reconfiguration() { }
-	
 	/**
 	 * find all articles
 	 * @return

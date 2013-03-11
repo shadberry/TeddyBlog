@@ -24,25 +24,26 @@ public class SessionInterceptor implements Interceptor {
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
-		System.out.println("Interceptor intercept before");
+		System.out.println("1");
 		String result = null;
 		try {
 			HibernateSessionFactory.getSession().beginTransaction(); 
 			result = invocation.invoke();
 			HibernateSessionFactory.getSession().getTransaction().commit();
 		} catch (Exception e) {
-			log.error("SessionFilter catch Exception, try to rollback", e);
+			log.error("SessionInterceptor catch Exception " + e.getMessage()+ " , try to rollback");
 			try {
 				if (HibernateSessionFactory.getSession().getTransaction().isActive())   {   
 					HibernateSessionFactory.getSession().getTransaction().rollback();   
 				} 
 			} catch (Exception innerEx) {
-				log.error("Rollback fail", e);
+				log.error("Rollback fail: " + innerEx.getMessage(), innerEx);
 			}
+			throw e;
 		} finally {
 			HibernateSessionFactory.closeSession();
 		}
-		System.out.println("Interceptor intercept afater");
+		System.out.println("2");
 		return result;
 	}
 

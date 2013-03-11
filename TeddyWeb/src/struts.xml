@@ -32,14 +32,25 @@
 	<package name="default" extends="struts-default">
 		<interceptors>
 			<!-- Authorization interceptor -->
-			<interceptor name="authInterceptor" 
+			<interceptor name="sessionInterceptor" 
 				class="net.teddy.control.interceptor.SessionInterceptor" />
+			<!-- Exception Catcher interceptor -->
+			<interceptor name="exceptionInterceptor" 
+				class="net.teddy.control.interceptor.SessionInterceptor" />
+				
 			<interceptor-stack name="authStack">
-				<interceptor-ref name="authInterceptor" />
+				<interceptor-ref name="exceptionInterceptor" />
+				<interceptor-ref name="sessionInterceptor" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
+		
+		<!-- Default Interceptor -->
 		<default-interceptor-ref name="authStack"/>
+		<!-- Default result -->
+		<global-results>  
+			<result name="error">/error.jsp</result> 
+		</global-results>
 		
 		<!-- actions -->
 		<action name="index"  class="net.teddy.control.action.ListArticleAction" method="execute">

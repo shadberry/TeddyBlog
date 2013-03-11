@@ -17,6 +17,15 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet>
+    <servlet-name>XmlInit</servlet-name>
+    <servlet-class>net.teddy.control.servlet.XmlInitServlet</servlet-class>
+    <init-param>
+      <param-name>xmlPath</param-name>
+      <param-value>/xml/Query_Main.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
   <filter>
   	<filter-name>struts2</filter-name>
   	<filter-class>

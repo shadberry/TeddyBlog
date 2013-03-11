@@ -1,8 +1,11 @@
 package net.teddy.dao.interfaces;
 
-import net.teddy.dao.HibernateSessionFactory;
-import net.teddy.dao.interfaces.IBaseHibernateDAO;
+import java.util.List;
 
+import net.teddy.dao.HibernateSessionFactory;
+import net.teddy.utils.QueryXmlReader;
+
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 
@@ -16,4 +19,12 @@ public abstract class BaseHibernateDAO implements IBaseHibernateDAO {
 		return HibernateSessionFactory.getSession();
 	}
 	
+	public List queryBySql(String module, String sqlId, String... args) {
+		Session session = HibernateSessionFactory.getSession();
+		String sql = QueryXmlReader.getSql(module, sqlId, args);
+		SQLQuery query = session.createSQLQuery(sql);
+		List re = query.list();
+		return re;
+		
+	}
 }
