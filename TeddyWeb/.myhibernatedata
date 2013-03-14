@@ -1,5 +1,5 @@
 #MyEclipse Hibernate Properties
-#Sat Mar 09 08:37:56 CST 2013
+#Wed Mar 13 14:39:27 CST 2013
 sessionFactoryName=net.teddy.dao.HibernateSessionFactory
 genBasicCompId=true
 profile=
@@ -16,9 +16,10 @@ libInstallFolder=/WebRoot/WEB-INF/lib
 addLibs2Project=true
 genVersionTag=false
 sessionFactoryId=
-basePersistenceClass=
+basePersistenceClass=net.teddy.model.base.BaseVo
 genAnnotations=false
 reSettingsFile=
 configFile=/TeddyWeb/src/hibernate.cfg.xml
 createConfigFile=true
 addLibs2Classpath=true
+baseDaoClass=net.teddy.dao.base.BaseHibernateDAO

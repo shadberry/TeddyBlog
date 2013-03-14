@@ -36,11 +36,15 @@
 				class="net.teddy.control.interceptor.SessionInterceptor" />
 			<!-- Exception Catcher interceptor -->
 			<interceptor name="exceptionInterceptor" 
-				class="net.teddy.control.interceptor.SessionInterceptor" />
+				class="net.teddy.control.interceptor.ExceptionInterceptor" />
+			<!-- Auth verify interceptor -->
+			<interceptor name="authInterceptor" 
+				class="net.teddy.control.interceptor.AuthInterceptor"></interceptor>
 				
 			<interceptor-stack name="authStack">
 				<interceptor-ref name="exceptionInterceptor" />
 				<interceptor-ref name="sessionInterceptor" />
+				<interceptor-ref name="authInterceptor" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>

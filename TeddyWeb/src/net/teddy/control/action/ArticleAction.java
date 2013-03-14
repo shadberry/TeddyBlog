@@ -7,10 +7,16 @@ public class ArticleAction {
 	
 	private static ArticleService  articleService = new ArticleService(); 
 	
+	//in: article id
 	private Integer id;
-	
+	//out: article info
 	private TArticle article;
 	
+	/**
+	 * Show specify article
+	 * @return
+	 * @throws Exception
+	 */
 	public String show() throws Exception {
 		if (id != null && id > 0) {
 			article = articleService.findById(id);

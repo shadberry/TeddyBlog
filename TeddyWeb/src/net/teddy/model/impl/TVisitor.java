@@ -6,7 +6,8 @@ import java.sql.Timestamp;
  * TVisitor entity. @author MyEclipse Persistence Tools
  */
 
-public class TVisitor implements java.io.Serializable {
+public class TVisitor extends net.teddy.model.base.BaseVo implements
+		java.io.Serializable {
 
 	// Fields
 

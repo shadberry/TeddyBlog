@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<module id="article">
-		<sql id="getAllArticle">
-			select * from {0} order by {1} {2} 
-		</sql>
-	</module>
-
-</root>

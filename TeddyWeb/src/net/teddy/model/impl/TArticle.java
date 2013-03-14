@@ -6,7 +6,8 @@ import java.sql.Timestamp;
  * TArticle entity. @author MyEclipse Persistence Tools
  */
 
-public class TArticle implements java.io.Serializable {
+public class TArticle extends net.teddy.model.base.BaseVo implements
+		java.io.Serializable {
 
 	// Fields
 

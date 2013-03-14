@@ -7,24 +7,30 @@ import net.teddy.service.impl.ArticleService;
 
 import com.opensymphony.xwork2.Action;
 
-public class ListArticleAction implements Action{
+public class ListArticleAction{
 
 	private static ArticleService  articleService = new ArticleService(); 
 	
-	private List<TArticle> articleList;
+	//out: article list
+	private List articleList;
 	
-	@Override
+	/**
+	 * List all articles.
+	 * @return
+	 * @throws Exception
+	 */
 	public String execute() throws Exception {
 		String success = "success";
-		List<TArticle> result = articleService.findAll();
-		for (TArticle a : result) {
-			System.out.println(a.getTitle() + "_" + a.getSummary() + "_" +a.getContent());
+		List result = articleService.findAll();
+		for (Object o : result) {
+			Object[] cols = (Object[]) o;
+			System.out.println(cols[0] + "_" + cols[1] + "_" + cols[2]);
 		}
 		articleList  = articleService.findAll();
 		return success;
 	}
 	
-	public List<TArticle> getArticleList() {
+	public List getArticleList() {
 		return articleList;
 	}
 	
