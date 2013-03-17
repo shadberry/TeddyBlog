@@ -1,18 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta content="true" name="mssmarttagspreventparsing" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Teddy' Blog</title>
-	<link href="<%=basePath %>css/style.css" rel="stylesheet" type="text/css" />
+	<title>free-css-templates-289</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<!-- IE fixes -->
 	<!--[if lte IE 6]>
 	<style type="text/css">
@@ -95,35 +88,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<!-- BEGIN Main Container -->
         <div id="content">
-			
-			
-			<!-- BEGIN Write new article link -->
-			<div style="float:rigth">
-				<a href="#" class="side_link">Write new article</a>
-			</div>
+		
 		<!-- BEGIN Left Column Container -->
 		<div id="lcont">
-			<s:iterator status="status" value="#request.articleList"  id="article">
-				<!-- BEGIN Article, Post, Product, Item... -->
-				<div class="post">
-					<!-- BEGIN item's title -->
-					<a href="${basePath }showArticle.do?id=${article.id}" class="post_title"><s:property value='#article.title'/></a>
-					<!-- BEGIN item's info: date, author... -->
-					<span class="date"><s:property value="#article.createddate"/> Posted by: designer, 20 comments</span>
-					<!-- BEGIN item's content -->
-					<p>
-						<s:property value="#article.summary" />
-					</p>
-					<br class="clr"/>
-					<!-- Read More button -->
-					<div class="read_post"><a href="${basePath }showArticle.do?id=${article.id}">Read More ...</a></div>
-					<hr/>
-				</div> 
-			</s:iterator>
 			<!-- BEGIN Article, Post, Product, Item... -->
 			<div class="post">
 				<!-- BEGIN item's title -->
-				<a href="${basePath }article.html" class="post_title">Logo Design Process Tutorial</a>
+				<a href="#" class="post_title">Logo Design Process Tutorial</a>
 				<!-- BEGIN item's info: date, author... -->
 				<span class="date">February 28th, 2009 Posted by: designer, 20 comments</span>
 				

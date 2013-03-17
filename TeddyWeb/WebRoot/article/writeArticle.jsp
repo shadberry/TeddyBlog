@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta content="true" name="mssmarttagspreventparsing" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Teddy' Blog</title>
+	<title>free-css-templates-289</title>
 	<link href="<%=basePath %>css/style.css" rel="stylesheet" type="text/css" />
 	<!-- IE fixes -->
 	<!--[if lte IE 6]>
@@ -95,35 +94,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<!-- BEGIN Main Container -->
         <div id="content">
-			
-			
-			<!-- BEGIN Write new article link -->
-			<div style="float:rigth">
-				<a href="#" class="side_link">Write new article</a>
-			</div>
+		
 		<!-- BEGIN Left Column Container -->
 		<div id="lcont">
-			<s:iterator status="status" value="#request.articleList"  id="article">
-				<!-- BEGIN Article, Post, Product, Item... -->
-				<div class="post">
-					<!-- BEGIN item's title -->
-					<a href="${basePath }showArticle.do?id=${article.id}" class="post_title"><s:property value='#article.title'/></a>
-					<!-- BEGIN item's info: date, author... -->
-					<span class="date"><s:property value="#article.createddate"/> Posted by: designer, 20 comments</span>
-					<!-- BEGIN item's content -->
-					<p>
-						<s:property value="#article.summary" />
-					</p>
-					<br class="clr"/>
-					<!-- Read More button -->
-					<div class="read_post"><a href="${basePath }showArticle.do?id=${article.id}">Read More ...</a></div>
-					<hr/>
-				</div> 
-			</s:iterator>
 			<!-- BEGIN Article, Post, Product, Item... -->
 			<div class="post">
 				<!-- BEGIN item's title -->
-				<a href="${basePath }article.html" class="post_title">Logo Design Process Tutorial</a>
+				<a href="#" class="post_title">Logo Design Process Tutorial</a>
 				<!-- BEGIN item's info: date, author... -->
 				<span class="date">February 28th, 2009 Posted by: designer, 20 comments</span>
 				
@@ -134,38 +111,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				One of the main aspects of the branding process includes logo development. Your logo, or <em>brand mark</em>, in other words, needs to reflect your brand accurately, as it will play a huge role in your brand recognition. This however doesn't mean that the branding process ends when you've developed your logo, branding takes a lot of time, commitment, managing skills and finally, the ability to reflect the image you want others to have of you and your business</p>
 				<p>This tutorial is intended to benefit both our potential <em>clients</em>, so they can have a fully comprehensive overview of our logo design process and methods; and many of our <em>users</em>, interested in the process of designing and developing a logo.</p>
 				<p>For the purpose of this tutorial, we're going to design and develop a logo for an imaginary company, called "LTD", short from Logo Tutorial by DryIcons.</p>
-				<br class="clr"/>
-				<!-- Read More button -->
-				<div class="read_post"><a href="#">Read More ...</a></div>
-				<hr/>
-			</div>
-			<!-- END Article, Post, Product, Item... -->
-			
-			<!-- BEGIN Article, Post, Product, Item... -->
-			<div class="post">
-				<a href="#" class="post_title">865171.cn 2.0</a>
-				<span class="date">February 5th, 2009 Posted by: radiohead, 5 comments</span>
-				<p><a style="border: 0pt none;" href="#"><img border="0" alt="DryIcons Redesign" src="images/dryicons_redesign.jpg"/></a></p>
-				<p>The DryIcons website has grown so much in the past year, it's slowly becoming a monster (but it's one of those cute ones). Well aware of this fact we've made a monstrous decision to redesign the DryIcons website. We assure you, this was not an easy decision to make, but as time passed, the redesign project became a necessity, so the need to update the design was kind of self-made (by our monster-child), it was simply inevitable.
+				<!-- More  -->
+				<p>
+				<b>More:</b>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum, nisi ut ornare elementum, leo ipsum bibendum orci, id dapibus urna erat at nisi. Nullam eros. Morbi consequat euismod elit. Aenean sit amet ipsum sit amet diam vulputate aliquam. Nunc scelerisque sodales metus. Fusce iaculis vehicula nisi. Sed non nisl. Donec consequat aliquet urna. Sed malesuada consectetur arcu. Integer nec nisl pulvinar leo volutpat feugiat. Proin consectetur orci sit amet orci.</p>
+				<p>
+				Morbi laoreet auctor mauris. Curabitur sed sapien. Nam magna metus, bibendum in, semper vitae, venenatis eget, turpis. Sed consectetur, nulla ut lacinia venenatis, neque arcu pretium augue, nec rhoncus augue nibh id quam. Vestibulum luctus leo sed leo. Etiam tristique, lacus eget sagittis porta, mi elit feugiat augue, in dignissim felis ligula quis est. Nunc venenatis, dui sit amet posuere rutrum, erat velit tempor felis, et posuere velit lectus pharetra elit. Etiam gravida interdum quam. Curabitur eleifend velit quis risus. Morbi mattis luctus lacus. Maecenas id metus. Duis vitae diam bibendum tortor sollicitudin tincidunt. Aenean elementum tristique justo. Pellentesque imperdiet tincidunt quam. Curabitur eleifend euismod ante. In hac habitasse platea dictumst. Integer malesuada pharetra lacus. Mauris laoreet luctus tellus. In pellentesque.
 				</p>
-				<br class="clr"/>
-				<div class="read_post"><a href="#">Read More ...</a></div>
-				<hr/>
+				<br class="clr" />
+				<div class="view_comments">
+					<a href="#comments">8 Comments</a>
+				</div>
 			</div>
 			<!-- END Article, Post, Product, Item... -->
 			
 			
-			<!-- BEGIN Pagination -->
-			<div id="pagination">
-				<span class="previous"> </span>
-				<span class="pag_num_activ">1</span>
-				<a href="#page-2-goes-here" class="pag_num">2</a>
-				<a href="#page-3-goes-here" class="pag_num">3</a>
-				<a href="#page-4-goes-here" class="pag_num">4</a>
-				<a href="#page-5-goes-here" class="pag_num">5</a>
-				<a href="#page-2-is-next" class="next"></a>
+			<!-- BEGIN Comments -->
+			<a name="comments"></a>
+			<div id="all_comments">
+				<div class="comment">
+					<div class="comment_header">
+						<p>1. Persia Emily <span>Says:</span></p>
+						<span class="comment_time">Fevruary 20th, 2009 20:29</span><br />
+						<div class="avatar">
+							<div class="avatar_frame"></div>	
+						</div>
+					</div>
+					<div class="comment_text">
+						<div>
+							<p>How excited I am! Coquette Part4 comes out! I love Dryicons' products very much!</p>
+							<p>They're all good!</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- END Pagination -->
+			<div id="post_your_comment">
+				<div id="contact">
+					<h3>Post your comment</h3>
+					<form action="#" method="post" id="contact_form">
+						<div id="input_fields">
+							<div class="contact_name">
+
+								<input type="text" maxlength="255" /><div class="cn"><strong>Name</strong> (required)</div><br />
+							</div>
+							<div class="contact_name">
+								<input type="text" maxlength="255" /><div class="cn"><strong>E-mail</strong> (will not be published) (required)</div><br />
+							</div>
+							<div class="contact_name">
+
+								<input type="text" maxlength="255" /><div class="cn"><strong>Website</strong> </div><br />
+							</div>
+							<div class="contact_text">
+								<textarea cols="78" rows="9"></textarea>
+							</div>
+							<div class="submit">
+								<input class="submit_button" type="submit" name="submin" value="Post comment" tabindex="5" />
+
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- END Comments -->
+			
 		</div>
 		<!-- END Left Column Container -->
 		
@@ -258,7 +266,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		     For details see /#//terms/ -->
 		<div id="bfoo">
 			<div id="foo_copy"><p>&copy;2009 Urbanism. All rights reserved.</p></div>
-			<div id="foo_dry"><a href="/#/" target="_blank">Free Template and Icons</a></div>
+			<div id="foo_dry"><a href="/#/" target="_blank">Free Template and Icons </a></div>
 			<div id="foo_badge"><a href="/#/" target="_blank"></a></div>
 		</div>
 	</div>
