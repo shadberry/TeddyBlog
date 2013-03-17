@@ -4,7 +4,8 @@ package net.teddy.model.impl;
  * TUser entity. @author MyEclipse Persistence Tools
  */
 
-public class TUser implements java.io.Serializable {
+public class TUser extends net.teddy.model.base.BaseVo implements
+		java.io.Serializable {
 
 	// Fields
 

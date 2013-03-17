@@ -1,4 +1,6 @@
-package net.teddy.dao.interfaces;
+package net.teddy.dao.base;
+
+import java.util.List;
 
 import org.hibernate.Session;
 
@@ -9,4 +11,7 @@ import org.hibernate.Session;
  */
 public interface IBaseHibernateDAO {
 	public Session getSession();
+	public List queryBySql(String module, String sqlId, String... args);
+	
+	public static final String MODULE_ARTICLE = "article";
 }

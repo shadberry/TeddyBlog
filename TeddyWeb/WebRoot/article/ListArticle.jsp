@@ -107,16 +107,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- BEGIN Article, Post, Product, Item... -->
 				<div class="post">
 					<!-- BEGIN item's title -->
-					<a href="${basePath }showArticle.do?id=${article.id}" class="post_title"><s:property value='#article.title'/></a>
+					<a href="${basePath }showArticle.do?id=${article[0]}" class="post_title"><s:property value='#article[1]'/></a>
 					<!-- BEGIN item's info: date, author... -->
-					<span class="date"><s:property value="#article.createddate"/> Posted by: designer, 20 comments</span>
+					<span class="date">${article[4] } Posted by: designer, 20 comments</span>
 					<!-- BEGIN item's content -->
 					<p>
-						<s:property value="#article.summary" />
+						${article[2] }
 					</p>
 					<br class="clr"/>
 					<!-- Read More button -->
-					<div class="read_post"><a href="${basePath }showArticle.do?id=${article.id}">Read More ...</a></div>
+					<div class="read_post"><a href="${basePath }showArticle.do?id=${article[0]}">Read More ...</a></div>
 					<hr/>
 				</div> 
 			</s:iterator>

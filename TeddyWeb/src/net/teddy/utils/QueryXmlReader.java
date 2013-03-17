@@ -1,40 +1,48 @@
 package net.teddy.utils;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
-import java.util.Iterator;
-import java.util.List;
+import java.io.File;
 
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
+import org.dom4j.Document;
+import org.dom4j.Node;
+import org.dom4j.io.SAXReader;
+
 
 public class QueryXmlReader {
 
-	public static void parserXml(String fileName) {  
-		String textXml = "";
-		SAXBuilder builder = new SAXBuilder();
-		Document doc = null;
-		Reader in= new StringReader(textXml);
-		try {
-			doc = builder.build(in);
-			Element root = doc.getRootElement();
-			List ls = root.getChildren();//注意此处取出的是root节点下面的一层的Element集合
-			for (Iterator iter = ls.iterator(); iter.hasNext(); ) {
-				Element el = (Element) iter.next();
-				if(el.getName().equals("to")){
-					System.out.println(el.getText());
-				}
-			}
+	private static String xmlPath = null;
 
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} catch (JDOMException ex) {
-			ex.printStackTrace();
+	private static Document doc = null;
+
+	/**
+	 * Parse xml, called in first time or after modify
+	 * @throws Exception
+	 */
+	public static void parserXml() throws Exception{ 
+		if (xmlPath == null || xmlPath.isEmpty()) {
+			throw new Exception("Query xml file path is null or empty");
 		}
+		SAXReader builder = new SAXReader();
+		doc = builder.read(new File(xmlPath));
 	}
 
+	/**
+	 * get sql by module and id from the spicify xml parsed document
+	 * @param module
+	 * @param sqlId
+	 * @param args
+	 * @return
+	 */
+	public static String getSql(String module, String sqlId) {
+		String xpathStr = "/root/module[@id='{0}']/sql[@id='{1}']"; 
+		xpathStr = CommonUtil.replaceArgs(xpathStr, module, sqlId);
+		Node node = doc.selectSingleNode(xpathStr);
+		return node.getText().trim();
+	}
 
-
+	/**
+	 * Set xml path, called in sever startup or the xml path changed
+	 * @param xmlPath
+	 */
+	public static void setXmlPath(String xmlPath) {
+		QueryXmlReader.xmlPath = xmlPath;
+	}
 }

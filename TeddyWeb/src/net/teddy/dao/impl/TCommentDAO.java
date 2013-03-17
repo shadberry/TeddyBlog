@@ -3,7 +3,7 @@ package net.teddy.dao.impl;
 import java.util.List;
 
 import net.teddy.dao.base.BaseHibernateDAO;
-import net.teddy.model.impl.TVisitor;
+import net.teddy.model.impl.TComment;
 
 import org.hibernate.LockMode;
 import org.hibernate.Query;
@@ -13,27 +13,27 @@ import org.slf4j.LoggerFactory;
 
 /**
  * A data access object (DAO) providing persistence and search support for
- * TVisitor entities. Transaction control of the save(), update() and delete()
+ * TComment entities. Transaction control of the save(), update() and delete()
  * operations can directly support Spring container-managed transactions or they
  * can be augmented to handle user-managed Spring transactions. Each of these
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see net.teddy.model.impl.TVisitor
+ * @see net.teddy.model.impl.TComment
  * @author MyEclipse Persistence Tools
  */
 
-public class TVisitorDAO extends BaseHibernateDAO {
+public class TCommentDAO extends BaseHibernateDAO {
 	private static final Logger log = LoggerFactory
-			.getLogger(TVisitorDAO.class);
+			.getLogger(TCommentDAO.class);
 	// property constants
-	public static final String USERNAME = "username";
-	public static final String PASSWORD = "password";
-	public static final String DESCRIPTION = "description";
-	public static final String IPADDRESS = "ipaddress";
+	public static final String TITLE = "title";
+	public static final String CONTENT = "content";
+	public static final String ARTICLEID = "articleid";
+	public static final String CREATORID = "creatorid";
 
-	public void save(TVisitor transientInstance) {
-		log.debug("saving TVisitor instance");
+	public void save(TComment transientInstance) {
+		log.debug("saving TComment instance");
 		try {
 			getSession().save(transientInstance);
 			log.debug("save successful");
@@ -43,8 +43,8 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public void delete(TVisitor persistentInstance) {
-		log.debug("deleting TVisitor instance");
+	public void delete(TComment persistentInstance) {
+		log.debug("deleting TComment instance");
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -54,11 +54,11 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public TVisitor findById(java.lang.Integer id) {
-		log.debug("getting TVisitor instance with id: " + id);
+	public TComment findById(java.lang.Integer id) {
+		log.debug("getting TComment instance with id: " + id);
 		try {
-			TVisitor instance = (TVisitor) getSession().get(
-					"net.teddy.model.impl.TVisitor", id);
+			TComment instance = (TComment) getSession().get(
+					"net.teddy.model.impl.TComment", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -66,11 +66,11 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public List findByExample(TVisitor instance) {
-		log.debug("finding TVisitor instance by example");
+	public List findByExample(TComment instance) {
+		log.debug("finding TComment instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("net.teddy.model.impl.TVisitor")
+					.createCriteria("net.teddy.model.impl.TComment")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -82,10 +82,10 @@ public class TVisitorDAO extends BaseHibernateDAO {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding TVisitor instance with property: " + propertyName
+		log.debug("finding TComment instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from TVisitor as model where model."
+			String queryString = "from TComment as model where model."
 					+ propertyName + "= ?";
 			Query queryObject = getSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
@@ -96,26 +96,26 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public List findByUsername(Object username) {
-		return findByProperty(USERNAME, username);
+	public List findByTitle(Object title) {
+		return findByProperty(TITLE, title);
 	}
 
-	public List findByPassword(Object password) {
-		return findByProperty(PASSWORD, password);
+	public List findByContent(Object content) {
+		return findByProperty(CONTENT, content);
 	}
 
-	public List findByDescription(Object description) {
-		return findByProperty(DESCRIPTION, description);
+	public List findByArticleid(Object articleid) {
+		return findByProperty(ARTICLEID, articleid);
 	}
 
-	public List findByIpaddress(Object ipaddress) {
-		return findByProperty(IPADDRESS, ipaddress);
+	public List findByCreatorid(Object creatorid) {
+		return findByProperty(CREATORID, creatorid);
 	}
 
 	public List findAll() {
-		log.debug("finding all TVisitor instances");
+		log.debug("finding all TComment instances");
 		try {
-			String queryString = "from TVisitor";
+			String queryString = "from TComment";
 			Query queryObject = getSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
@@ -124,10 +124,10 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public TVisitor merge(TVisitor detachedInstance) {
-		log.debug("merging TVisitor instance");
+	public TComment merge(TComment detachedInstance) {
+		log.debug("merging TComment instance");
 		try {
-			TVisitor result = (TVisitor) getSession().merge(detachedInstance);
+			TComment result = (TComment) getSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -136,8 +136,8 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public void attachDirty(TVisitor instance) {
-		log.debug("attaching dirty TVisitor instance");
+	public void attachDirty(TComment instance) {
+		log.debug("attaching dirty TComment instance");
 		try {
 			getSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -147,8 +147,8 @@ public class TVisitorDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public void attachClean(TVisitor instance) {
-		log.debug("attaching clean TVisitor instance");
+	public void attachClean(TComment instance) {
+		log.debug("attaching clean TComment instance");
 		try {
 			getSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");

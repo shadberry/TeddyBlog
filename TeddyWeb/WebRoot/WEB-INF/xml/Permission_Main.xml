@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<role id="default">
+		<operation id="">
+			<action id="" />
+		</operation>
+	</role>
+	<role id="visitor">
+		<operation id="">
+			<action id="" />
+		</operation>
+	</role>
+	<role id="owner" name="博主">
+		<operation id="net.teddy.article" name="文档">
+			<action id="any" />
+		</operation>
+		<operation id="net.teddy.comment" name="评论">
+			<action id="any" />
+		</operation>
+	</role>
+	
+	<allpermission>
+		<operation id="net.teddy.article" name="文档">
+			<action id="save"  name="保存">
+				<action id="create"  name="创建"/>
+				<action id="modify"  name="修改"/>
+				<action id="delete"  name="删除"/>
+			</action>
+			<action id="view" name="查看">
+				<action id="detail"  name="内容"/>
+				<action id="list"  name="列表"/>
+			</action>
+		</operation>
+		<operation id="net.teddy.comment" name="评论">
+			<action id="save"  name="保存">
+				<action id="create"  name="创建"/>
+				<action id="modify"  name="修改"/>
+				<action id="delete"  name="删除"/>
+			</action>
+			<action id="view" name="查看">
+				<action id="list"  name="列表"/>
+			</action>
+		</operation>
+	</allpermission>
+</root>

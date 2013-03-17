@@ -2,7 +2,7 @@ package net.teddy.dao.impl;
 
 import java.util.List;
 
-import net.teddy.dao.interfaces.BaseHibernateDAO;
+import net.teddy.dao.base.BaseHibernateDAO;
 import net.teddy.model.impl.TArticle;
 
 import org.hibernate.LockMode;
@@ -30,6 +30,8 @@ public class TArticleDAO extends BaseHibernateDAO {
 	public static final String TITLE = "title";
 	public static final String SUMMARY = "summary";
 	public static final String CONTENT = "content";
+	public static final String CREATOR_ID = "creatorId";
+	public static final String MODIFIER_ID = "modifierId";
 
 	public void save(TArticle transientInstance) {
 		log.debug("saving TArticle instance");
@@ -105,6 +107,14 @@ public class TArticleDAO extends BaseHibernateDAO {
 
 	public List findByContent(Object content) {
 		return findByProperty(CONTENT, content);
+	}
+
+	public List findByCreatorId(Object creatorId) {
+		return findByProperty(CREATOR_ID, creatorId);
+	}
+
+	public List findByModifierId(Object modifierId) {
+		return findByProperty(MODIFIER_ID, modifierId);
 	}
 
 	public List findAll() {
