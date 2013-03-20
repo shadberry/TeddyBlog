@@ -17,7 +17,19 @@ public class ArticleAction {
 	 * @return
 	 * @throws Exception
 	 */
-	public String show() throws Exception {
+	public String showTeddy() throws Exception {
+		if (id != null && id > 0) {
+			article = articleService.findById(id);
+		}
+		return "success";
+	}
+	
+	/**
+	 * Show specify article
+	 * @return
+	 * @throws Exception
+	 */
+	public String showShall() throws Exception {
 		if (id != null && id > 0) {
 			article = articleService.findById(id);
 		}

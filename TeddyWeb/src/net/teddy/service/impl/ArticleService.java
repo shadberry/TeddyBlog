@@ -21,6 +21,15 @@ public class ArticleService implements IService{
 	}
 	
 	/**
+	 * find all articles order by creator and created date
+	 * @return
+	 */
+	public List<TArticle> findAllByCreator(Integer id) {
+		return articleDAO.queryBySql(IBaseHibernateDAO.MODULE_ARTICLE, 
+				"getAllArticleByCreator", "CREATEDDATE", "DESC", id.toString());
+	}
+	
+	/**
 	 * find article by id
 	 * @param id
 	 * @return

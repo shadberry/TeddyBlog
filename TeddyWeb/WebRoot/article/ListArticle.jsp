@@ -18,15 +18,14 @@
 	<div id="wrapper_home">
 		<div id="header_home">
 			<!-- header -->
-			<a href="index.php" tppabs="http://huihuiweb.cn"><img
-				src="wp-content/themes/rinwendyrev1/images/masthead_home.jpg"
-				tppabs="http://huihuiweb.cn/wp-content/themes/rinwendyrev1/images/masthead_home.jpg" />
+			<a href="" >
+				<img src="#" />
 			</a>
 		</div>
 		<div id="content_home">
 			<div id="home_teddyside">
 				<!-- The Loop -->
-				<s:iterator status="status" value="#request.articleList"  id="article">
+				<s:iterator status="status" value="#request.teddyArticleList"  id="article">
 					<s:if test="#status.odd">
 					<div class="post_summary_1">
 						<div class="post_inner_1" >
@@ -39,7 +38,7 @@
 							<div class="post_title">
 								<h4>
 									<!-- BEGIN item's title -->
-									<a href="${basePath }showArticle.do?id=${article[0]}" class="post_title"><s:property value='#article[1]'/></a>
+									<a href="${basePath }showTeddyArticle.do?id=${article[0]}" class="post_title"><s:property value='#article[1]'/></a>
 								</h4>
 							</div>
 							<!-- BEGIN item's content -->
@@ -141,7 +140,7 @@
 							</div>
 							<ul class='xoxo blogroll'>
 								<li><a href="http://feifeii.com/" title="others"
-									target="_blank">狒狒博客</a>
+									target="_blank">...</a>
 								</li>
 							</ul></li>
 					</ul>
@@ -152,7 +151,7 @@
 
 			<div id="home_shallside">
 				<!-- The Loop -->
-				<s:iterator status="status" value="#request.articleList"  id="article">
+				<s:iterator status="status" value="#request.shallArticleList"  id="sa">
 					<s:if test="#status.odd">
 					<div class="post_summary_2">
 						<div class="post_inner_2" >
@@ -165,20 +164,20 @@
 							<div class="post_title">
 								<h4>
 									<!-- BEGIN item's title -->
-									<a href="${basePath }showArticle.do?id=${article[0]}" class="post_title"><s:property value='#article[1]'/></a>
+									<a href="${basePath }showShallArticle.do?id=${sa[0]}" class="post_title"><s:property value='#sa[1]'/></a>
 								</h4>
 							</div>
 							<!-- BEGIN item's content -->
 							<div class="homeentry">
-								<p>${article[2] }</p>
+								<p>${sa[2] }</p>
 							</div>
 							<!-- Read More button -->
-							<div class="post_read"><a href="${basePath }showArticle.do?id=${article[0]}">Read More ...</a></div>
+							<div class="post_read"><a href="${basePath }showArticle.do?id=${sa[0]}">Read More ...</a></div>
 							<!-- Comment Count -->
 							<div class="post_comment">Comment: </div>
 							<!-- BEGIN item's info: date, author... -->
 							<div class="post_time">
-								<span class="date">${article[4] } Posted by: designer, 20 comments</span>
+								<span class="date">${sa[4] } Posted by: designer, 20 comments</span>
 							</div>
 						</div>
 					</div>

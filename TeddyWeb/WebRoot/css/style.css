@@ -4,6 +4,7 @@ Version: 1.0
 Author: Teddy Tang
 */
 
+/******************************Default/Article List Page***********************************/
 /* Default theme */
 body, img, div, h1,h2,h3,h4,h5,h6,table,p,pre,ol,ul,li {
 	margin:0;
@@ -136,3 +137,51 @@ body {
 	background: url(../images/bg_bottom.jpg) no-repeat;
 }
 /* End Footer */
+
+/******************************Article Show/Write/Edit Page***********************************/
+
+/* Header */
+#header_teddy_home {
+	width:1000px;
+	height:250px;
+	background: url(../images/bg_top_teddy.jpg) no-repeat;
+}
+#header_shall_home {
+	width:1000px;
+	height:250px;
+	background: url(../images/bg_top_shall.jpg) no-repeat;
+}
+/* End Header */
+
+/* Content */
+#content_teddy_home {
+	width: 1000px;
+	height: auto;
+	overflow: auto;
+	background: url(../images/bg_home_teddy.jpg) repeat-y;
+}
+#content_shall_home {
+	width: 1000px;
+	height: auto;
+	overflow: auto;
+	background: url(../images/bg_home_shall.jpg) repeat-y;
+}
+
+/* Content Side */
+#home_teddy_article {
+	width:750px;
+	height:auto;
+	position: relative;
+	float: left;
+	right: 60px;
+	overflow:hidden;
+}
+#home_shall_article {
+	width:750px;
+	height:auto;
+	position: relative;
+	float: left;
+	left: 60px;
+	overflow:hidden;
+}
+/* End Content */

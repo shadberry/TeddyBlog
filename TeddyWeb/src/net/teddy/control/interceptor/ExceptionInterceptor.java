@@ -17,7 +17,6 @@ public class ExceptionInterceptor implements Interceptor {
 
 	@Override
 	public String intercept(ActionInvocation arg0) throws Exception {
-		System.out.println("3");
 		String re = null;
 		try {
 			re = arg0.invoke();
@@ -25,7 +24,6 @@ public class ExceptionInterceptor implements Interceptor {
 			log.error("catch a Exception: " + e.getMessage(), e);
 			re = "error";
 		}
-		System.out.println("4");
 		return re;
 	}
 

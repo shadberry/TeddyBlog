@@ -57,7 +57,7 @@
 		</global-results>
 		
 		<!-- actions -->
-		<action name="index"  class="net.teddy.control.action.ListArticleAction" method="execute">
+		<action name="index"  class="net.teddy.control.action.ListArticleAction" method="listAll">
 			<result name="success">/article/ListArticle.jsp</result>
 		</action>
 		<action name="*Article"  class="net.teddy.control.action.ArticleAction" method="{1}">

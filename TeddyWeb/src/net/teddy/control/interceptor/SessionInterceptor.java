@@ -24,7 +24,6 @@ public class SessionInterceptor implements Interceptor {
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
-		System.out.println("1");
 		String result = null;
 		try {
 			HibernateSessionFactory.getSession().beginTransaction(); 
@@ -43,7 +42,6 @@ public class SessionInterceptor implements Interceptor {
 		} finally {
 			HibernateSessionFactory.closeSession();
 		}
-		System.out.println("2");
 		return result;
 	}
 

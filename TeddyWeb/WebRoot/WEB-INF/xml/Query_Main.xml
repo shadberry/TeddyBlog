@@ -13,6 +13,19 @@
 			from t_article
 			order by {0} {1} ;
 		</sql>
+		<sql id="getAllArticleByCreator">
+			select ID,
+						TITLE,
+						SUMMARY,
+						CONTENT,
+						CREATEDDATE,
+						CREATORID,
+						MODIFYDATE,
+						MODIFIERID
+			from t_article
+			where creatorId = '{2}'
+			order by {0} {1} ;
+		</sql>
 	</module>
 
 </root>

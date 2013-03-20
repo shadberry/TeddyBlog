@@ -11,27 +11,28 @@ public class ListArticleAction{
 
 	private static ArticleService  articleService = new ArticleService(); 
 	
-	//out: article list
-	private List articleList;
+	//out: teddy article list
+	private List teddyArticleList;
+	//out: shall article list
+	private List shallArticleList;
 	
 	/**
-	 * List all articles.
+	 * List all articles of two owner.
 	 * @return
 	 * @throws Exception
 	 */
-	public String execute() throws Exception {
+	public String listAll() throws Exception {
 		String success = "success";
-		List result = articleService.findAll();
-		for (Object o : result) {
-			Object[] cols = (Object[]) o;
-			System.out.println(cols[0] + "_" + cols[1] + "_" + cols[2]);
-		}
-		articleList  = articleService.findAll();
+		teddyArticleList  = articleService.findAllByCreator(1);
+		shallArticleList  = articleService.findAllByCreator(2);
 		return success;
 	}
 	
-	public List getArticleList() {
-		return articleList;
+	public List getTeddyArticleList() {
+		return teddyArticleList;
+	}
+	public List getShallArticleList() {
+		return shallArticleList;
 	}
 	
 }
