@@ -153,35 +153,50 @@ body {
 }
 /* End Header */
 
-/* Content */
+/* Teddy Content */
 #content_teddy_home {
 	width: 1000px;
 	height: auto;
 	overflow: auto;
 	background: url(../images/bg_home_teddy.jpg) repeat-y;
 }
+/* Teddy Content Bar*/
+#home_teddy_bar {
+	width: 160px;
+	height: auto;
+	position: relative;
+	float: left;
+	left: 40px
+}
+/* Teddy Content Side */
+#home_teddy_article {
+	width:780px;
+	height:auto;
+	position: relative;
+	float: left;
+	overflow:hidden;
+}
+
+/* Shall Content */
 #content_shall_home {
 	width: 1000px;
 	height: auto;
 	overflow: auto;
 	background: url(../images/bg_home_shall.jpg) repeat-y;
 }
-
-/* Content Side */
-#home_teddy_article {
-	width:750px;
-	height:auto;
+/* Shall Content Bar*/
+#home_shall_bar {
+	width: 160px;
+	height: auto;
 	position: relative;
 	float: left;
-	right: 60px;
-	overflow:hidden;
+	left: 40px;
 }
+/* Shall Content Side */
 #home_shall_article {
 	width:750px;
 	height:auto;
 	position: relative;
 	float: left;
-	left: 60px;
 	overflow:hidden;
 }
-/* End Content */

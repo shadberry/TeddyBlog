@@ -59,6 +59,10 @@
 				<!-- End Loop-->
 			</div>
 
+			<!-- BEGIN Side Bar -->
+			<s:include value="../common/sideBar.jsp">
+				<s:param name="sideBarId" value="home_bar"></s:param>
+			</s:include>
 			<div id="home_bar">
 				<div id="home-tag">
 					<!--home tag -->

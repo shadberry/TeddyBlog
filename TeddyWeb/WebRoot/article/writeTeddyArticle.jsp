@@ -26,7 +26,7 @@
 
 		<!-- BEGIN Main Container -->
 		<div id="content_teddy_home">
-			<!-- BEGIN Teddy Content -->\
+			<!-- BEGIN Teddy Content -->
 			<div id="home_teddy_article">
 				<div id="article_title">
 					${article.title }
@@ -38,9 +38,9 @@
 					${article.content }
 				</div>
 			</div>
-
+			
 			<!-- BEGIN Side Bar -->
-			<div id="home_bar">
+			<div id="home_teddy_bar">
 				<div id="home-tag">
 					<!--home tag -->
 					<a href="index.php"> </a>
