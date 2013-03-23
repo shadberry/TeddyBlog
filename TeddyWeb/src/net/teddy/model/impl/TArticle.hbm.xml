@@ -16,7 +16,7 @@
         <property name="summary" type="java.lang.String">
             <column name="SUMMARY" length="500" />
         </property>
-        <property name="content" type="java.lang.String">
+        <property name="content" type="java.sql.Blob">
             <column name="CONTENT" />
         </property>
         <property name="createddate" type="java.sql.Timestamp">

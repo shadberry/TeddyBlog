@@ -1,5 +1,6 @@
 package net.teddy.model.impl;
 
+import java.sql.Blob;
 import java.sql.Timestamp;
 
 /**
@@ -14,7 +15,7 @@ public class TArticle extends net.teddy.model.base.BaseVo implements
 	private Integer id;
 	private String title;
 	private String summary;
-	private String content;
+	private Blob content;
 	private Timestamp createddate;
 	private Integer creatorId;
 	private Timestamp modifydate;
@@ -32,7 +33,7 @@ public class TArticle extends net.teddy.model.base.BaseVo implements
 	}
 
 	/** full constructor */
-	public TArticle(String title, String summary, String content,
+	public TArticle(String title, String summary, Blob content,
 			Timestamp createddate, Integer creatorId, Timestamp modifydate,
 			Integer modifierId) {
 		this.title = title;
@@ -70,11 +71,11 @@ public class TArticle extends net.teddy.model.base.BaseVo implements
 		this.summary = summary;
 	}
 
-	public String getContent() {
+	public Blob getContent() {
 		return this.content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(Blob content) {
 		this.content = content;
 	}
 

@@ -27,7 +27,7 @@
 		<mapping resource="net/teddy/model/impl/TUser.hbm.xml" />
 		<mapping resource="net/teddy/model/impl/TComment.hbm.xml" />
 		<mapping resource="net/teddy/model/impl/TKeyword.hbm.xml" />
-
+	
 	</session-factory>
 
 </hibernate-configuration>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.teddy.model.impl.TArticle;
 import net.teddy.service.impl.ArticleService;
+import net.teddy.utils.CommonUtil;
 
 public class ArticleAction {
 	
@@ -17,6 +18,7 @@ public class ArticleAction {
 	public String showTeddy() throws Exception {
 		if (id != null && id > 0) {
 			article = articleService.findById(id);
+			articleContent = CommonUtil.convertBlobToString(article.getContent());
 		}
 		return "success";
 	}
@@ -66,7 +68,7 @@ public class ArticleAction {
 
 	//in:articleTitle
 	private String articleTitle;
-	//in:articleContent
+	//in|out:articleContent
 	private String articleContent;
 
 	public void setId(Integer id) {
@@ -87,6 +89,10 @@ public class ArticleAction {
 
 	public void setArticleContent(String articleContent) {
 		this.articleContent = articleContent;
+	}
+
+	public String getArticleContent() {
+		return articleContent;
 	}
 	
 }

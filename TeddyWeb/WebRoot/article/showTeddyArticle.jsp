@@ -36,7 +36,7 @@
 					${article. createddate}
 				</div>
 				<div id="article_text">
-					${article.content }
+					${articleContent }
 				</div>
 			</div>
 

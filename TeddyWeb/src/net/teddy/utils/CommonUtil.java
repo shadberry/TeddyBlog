@@ -1,5 +1,9 @@
 package net.teddy.utils;
 
+import java.io.ByteArrayInputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
+
 public class CommonUtil {
 
 	/**
@@ -16,5 +20,14 @@ public class CommonUtil {
 			str = str.replaceAll("\\{"+ i +"\\}", args[i]);
 		}
 		return str;
+	}
+
+	public static String convertBlobToString(Blob blob) throws SQLException{
+		String result = "";
+		ByteArrayInputStream msgContent =(ByteArrayInputStream) blob.getBinaryStream();
+		byte[] byte_data = new byte[msgContent.available()];
+		msgContent.read(byte_data, 0,byte_data.length);
+		result = new String(byte_data);
+		return result;
 	}
 }

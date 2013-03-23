@@ -3,6 +3,8 @@ package net.teddy.service.impl;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.hibernate.Hibernate;
+
 import net.teddy.dao.base.IBaseHibernateDAO;
 import net.teddy.dao.impl.TArticleDAO;
 import net.teddy.dao.impl.TKeywordDAO;
@@ -56,7 +58,7 @@ public class ArticleService implements IService{
 		TArticle article = new TArticle();
 		Timestamp currentTs = new Timestamp(System.currentTimeMillis()); 
 		article.setTitle(title);
-		article.setContent(content);
+		article.setContent(Hibernate.createBlob(content.getBytes()));
 		article.setCreatorId(creator);
 		article.setModifierId(creator);
 		article.setCreateddate(currentTs);
