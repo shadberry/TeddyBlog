@@ -42,8 +42,8 @@
 
 			<!-- BEGIN Side Bar -->
 			<s:include value="../common/sideBar.jsp">
+				<s:param name="sideBarId" value="'home_teddy_bar'" ></s:param>
 			</s:include>
-			
 		</div>
 	</div>
 	<!-- END Wrapper -->

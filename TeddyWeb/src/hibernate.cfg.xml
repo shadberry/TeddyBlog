@@ -7,7 +7,7 @@
 <hibernate-configuration>
 
 	<session-factory>
-	 	<!-- change from  org.hibernate.dialect.MySQLDialect -->
+		<!-- change from  org.hibernate.dialect.MySQLDialect -->
 		<property name="dialect">
 			net.teddy.dao.dialect.BlobMySQLDialect
 		</property>
@@ -26,6 +26,7 @@
 		<mapping resource="net/teddy/model/impl/TArticle.hbm.xml" />
 		<mapping resource="net/teddy/model/impl/TUser.hbm.xml" />
 		<mapping resource="net/teddy/model/impl/TComment.hbm.xml" />
+		<mapping resource="net/teddy/model/impl/TKeyword.hbm.xml" />
 
 	</session-factory>
 

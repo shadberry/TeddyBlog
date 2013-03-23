@@ -24,6 +24,7 @@
 		</div>
 		<div id="content_home">
 			<div id="home_teddyside">
+				<div><h3><a href="${basePath }writeTeddyArticle.do">New Article</a></h3></div>
 				<!-- The Loop -->
 				<s:iterator status="status" value="#request.teddyArticleList"  id="article">
 					<s:if test="#status.odd">
@@ -61,99 +62,11 @@
 
 			<!-- BEGIN Side Bar -->
 			<s:include value="../common/sideBar.jsp">
-				<s:param name="sideBarId" value="home_bar"></s:param>
+				<s:param name="sideBarId" value="'home_bar'" ></s:param>
 			</s:include>
-			<div id="home_bar">
-				<div id="home-tag">
-					<!--home tag -->
-					<a href="index.php" tppabs="http://huihuiweb.cn/photo-2/"><img
-						src="wp-content/themes/rinwendyrev1/images/tag_home.jpg"
-						tppabs="http://huihuiweb.cn/wp-content/themes/rinwendyrev1/images/tag_home.jpg" />
-					</a>
-				</div>
-				<p class="slogantext">123</p>
-				<p class="slogantext-small">(Teddy&Shall)</p>
-				<p>&nbsp;</p>
-				<div id="sidebar">
-					<ul>
-						<li>
-							<!-- Search Begin -->
-							<form name="form" id="searchform"
-								action="http://www.hui-xiu.com/" method="post">
-								<input name="s" type="text" class="searchInput" id="text"
-									onBlur="mousedown()" onClick="mouseover()" /> <input
-									class="searchBtn" type="submit" id="searchsubmit" value="搜 索" />
-							</form> <!-- Search End --></li>
-					</ul>
-					<ul>
-						<li>
-							<div class="sidebar-titletagcolor">
-								<h3 class="pagetitle">页面</h3>
-							</div>
-							<ul>
-								<li class="page_item page-item-32836"><a
-									href="http://www.hui-xiu.com/login-2/">Log In</a>
-								</li>
-								<li class="page_item page-item-31771"><a
-									href="http://www.hui-xiu.com/about-2/">关于</a>
-								</li>
-							</ul></li>
-						<li>
-							<div class="sidebar-titletagcolor">
-								<h3 class="pagetitle">新文</h3>
-							</div>
-							<ul>
-								<li><a
-									href="http://www.hui-xiu.com/%e5%b8%b8%e7%94%a8%e8%b0%83%e7%94%a8%e4%bb%a3%e7%a0%81/">常用调用代码</a>
-								</li>
-								<li><a
-									href="http://www.hui-xiu.com/%e5%8f%88%e4%b8%80%e9%83%a8%e5%8e%a6%e9%97%a8%e6%8b%8d%e7%9a%84%e5%89%a7-%e3%80%8a%e8%b4%a4%e5%a6%bb%e3%80%8b/">又一部厦门拍的剧&#8211;《贤妻》</a>
-								</li>
-							</ul></li>
-						<li>
-							<div class="sidebar-titletagcolor">
-								<h3 class="pagetitle">热评</h3>
-							</div>
-							<ul>
-								<ul>
-									<li><a
-										href="http://www.hui-xiu.com/%e6%b5%81%e5%8f%a3%e6%b0%b4ing/#comment-3326"
-										title="on 流口水ing">狒狒: 快点好吧</a>
-									</li>
-								</ul>
-							</ul></li>
-						<li>
-							<div class="sidebar-titletagcolor">
-								<h3 class="pagetitle">标签云</h3>
-							</div></li>
-						<li>
-							<div class="sidebar-titletagcolor">
-								<h3 class="pagetitle">文章分类</h3>
-							</div>
-							<ul>
-								<li class="cat-item cat-item-107"><a
-									href="http://www.hui-xiu.com/category/wordpress-computer/"
-									title="View all posts filed under wordpress">wordpress</a></li>
-								<li class="cat-item cat-item-106"><a
-									href="http://www.hui-xiu.com/category/biology/"
-									title="View all posts filed under 分子生物">分子生物</a></li>
-							</ul></li>
-						<li>
-							<div class="sidebar-titletagcolor">
-								<h3 class="pagetitle">链接表</h3>
-							</div>
-							<ul class='xoxo blogroll'>
-								<li><a href="http://feifeii.com/" title="others"
-									target="_blank">...</a>
-								</li>
-							</ul></li>
-					</ul>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-				</div>
-			</div>
 
 			<div id="home_shallside">
+				<div><h3>New Article</h3></div>
 				<!-- The Loop -->
 				<s:iterator status="status" value="#request.shallArticleList"  id="sa">
 					<s:if test="#status.odd">

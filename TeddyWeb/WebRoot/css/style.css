@@ -153,6 +153,13 @@ body {
 }
 /* End Header */
 
+/* Article Write */
+#article_write {
+	text-align:left;
+	padding: 10px;
+}
+/* End Article Write */
+
 /* Teddy Content */
 #content_teddy_home {
 	width: 1000px;

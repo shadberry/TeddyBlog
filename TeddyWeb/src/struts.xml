@@ -62,6 +62,10 @@
 		</action>
 		<action name="*Article"  class="net.teddy.control.action.ArticleAction" method="{1}">
 			<result name="success">/article/{1}Article.jsp</result>
+			<result name="saved" type="redirectAction">
+				<param name="actionName">showTeddyArticle</param>
+     			<param name="id">${id}</param> 
+			</result>
 		</action>
 	</package>
 </struts>    
