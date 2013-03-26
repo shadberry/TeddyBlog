@@ -20,6 +20,7 @@ public class TArticle extends net.teddy.model.base.BaseVo implements
 	private Integer creatorId;
 	private Timestamp modifydate;
 	private Integer modifierId;
+	private Integer readcount;
 
 	// Constructors
 
@@ -35,7 +36,7 @@ public class TArticle extends net.teddy.model.base.BaseVo implements
 	/** full constructor */
 	public TArticle(String title, String summary, Blob content,
 			Timestamp createddate, Integer creatorId, Timestamp modifydate,
-			Integer modifierId) {
+			Integer modifierId, Integer readcount) {
 		this.title = title;
 		this.summary = summary;
 		this.content = content;
@@ -43,6 +44,7 @@ public class TArticle extends net.teddy.model.base.BaseVo implements
 		this.creatorId = creatorId;
 		this.modifydate = modifydate;
 		this.modifierId = modifierId;
+		this.readcount = readcount;
 	}
 
 	// Property accessors
@@ -109,6 +111,14 @@ public class TArticle extends net.teddy.model.base.BaseVo implements
 
 	public void setModifierId(Integer modifierId) {
 		this.modifierId = modifierId;
+	}
+
+	public Integer getReadcount() {
+		return readcount;
+	}
+
+	public void setReadcount(Integer readcount) {
+		this.readcount = readcount;
 	}
 
 }

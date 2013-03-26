@@ -36,7 +36,8 @@ CREATE TABLE blog.T_ARTICLE (
 	createddate DATETIME, 											-- 创建日期
 	creatorId INTEGER, 													-- 创建者
 	modifydate DATETIME, 												-- 修改日期
-	modifierId INTEGER 													-- 修改者
+	modifierId INTEGER, 													-- 修改者
+	readcount INTEGER	DEFAULT 0									-- 读取次数
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 评论表

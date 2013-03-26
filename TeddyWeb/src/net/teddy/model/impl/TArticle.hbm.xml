@@ -31,5 +31,8 @@
         <property name="modifierId" type="java.lang.Integer">
             <column name="modifierId" />
         </property>
+        <property name="readcount" type="java.lang.Integer">
+            <column name="readcount" />
+        </property>
     </class>
 </hibernate-mapping>

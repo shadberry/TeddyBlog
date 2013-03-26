@@ -17,6 +17,7 @@ public class ArticleAction {
 	 */
 	public String showTeddy() throws Exception {
 		if (id != null && id > 0) {
+			article.setReadcount(article.getReadcount() + 1 );
 			article = articleService.findById(id);
 			articleContent = CommonUtil.convertBlobToString(article.getContent());
 		}
@@ -71,7 +72,9 @@ public class ArticleAction {
 	 */
 	public String showShall() throws Exception {
 		if (id != null && id > 0) {
+			article.setReadcount(article.getReadcount() + 1 );
 			article = articleService.findById(id);
+			articleContent = CommonUtil.convertBlobToString(article.getContent());
 		}
 		return "success";
 	}
