@@ -38,9 +38,29 @@ public class ArticleAction {
 	 * @throws Exception
 	 */
 	public String saveTeddy() throws Exception {
-		System.out.println("Title is: \n" + articleTitle);
-		System.out.println("Content is: \n" + articleContent);
 		this.id = articleService.saveArticleInfo(1, articleTitle, articleContent, new ArrayList<String>());
+		return "saved";
+	}
+	
+	/**
+	 * Show edit Teddy's article page
+	 * @return
+	 * @throws Exception
+	 */
+	public String editTeddy() throws Exception {
+		if (id != null && id > 0) {
+			article = articleService.findById(id);
+			articleContent = CommonUtil.convertBlobToString(article.getContent());
+		}
+		return "success";
+	}
+	/**
+	 * Save Teddy's article and show it after modify it
+	 * @return
+	 * @throws Exception
+	 */
+	public String saveEditTeddy() throws Exception {
+		articleService.saveArticleInfo(id, 1, articleTitle, articleContent, new ArrayList<String>());
 		return "saved";
 	}
 	
@@ -58,6 +78,38 @@ public class ArticleAction {
 	
 	public String writeShall() throws Exception {
 		return "success";
+	}
+	
+	/**
+	 * Save Teddy's article and show it
+	 * @return
+	 * @throws Exception
+	 */
+	public String saveShall() throws Exception {
+		this.id = articleService.saveArticleInfo(2, articleTitle, articleContent, new ArrayList<String>());
+		return "saved";
+	}
+	
+	/**
+	 * Show edit Teddy's article page
+	 * @return
+	 * @throws Exception
+	 */
+	public String editShall() throws Exception {
+		if (id != null && id > 0) {
+			article = articleService.findById(id);
+			articleContent = CommonUtil.convertBlobToString(article.getContent());
+		}
+		return "success";
+	}
+	/**
+	 * Save Teddy's article and show it after modify it
+	 * @return
+	 * @throws Exception
+	 */
+	public String saveEditShall() throws Exception {
+		articleService.saveArticleInfo(id, 2, articleTitle, articleContent, new ArrayList<String>());
+		return "saved";
 	}
 
 	/*******************************Arguments***************************************/

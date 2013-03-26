@@ -30,7 +30,7 @@
 			<!-- BEGIN Teddy Content -->
 			<form action="${basePath }saveTeddyArticle.do" method="post">
 				<div id="home_teddy_article">
-					<div id="article_write">
+					<div class="article_write">
 						<p>
 							<label for="articleTitle">
 								<strong>Title:</strong>

@@ -153,12 +153,17 @@ body {
 }
 /* End Header */
 
-/* Article Write */
-#article_write {
+/* Article About */
+.article_write {
 	text-align:left;
 	padding: 10px;
 }
-/* End Article Write */
+
+.article_show {
+	text-align:left;
+	padding: 10px;
+}
+/* End Article About */
 
 /* Teddy Content */
 #content_teddy_home {
@@ -201,9 +206,10 @@ body {
 }
 /* Shall Content Side */
 #home_shall_article {
-	width:750px;
+	width:780px;
 	height:auto;
 	position: relative;
 	float: left;
 	overflow:hidden;
+	left: 60px;
 }

@@ -15,8 +15,8 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Shall' Blog</title>
-<link href="<%=basePath%>css/style.css" rel="stylesheet"
-	type="text/css" />
+<link href="<%=basePath%>css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=basePath%>js/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<!-- BEGIN Wrapper -->
@@ -32,19 +32,30 @@
 				<s:param name="sideBarId" value="'home_shall_bar'" ></s:param>
 			</s:include>
 			<!-- BEGIN Shall Content -->
-			<div class="article_show">
+			<form action="${basePath }saveEditShallArticle.do" method="post">
 				<div id="home_shall_article">
-					<div id="article_title">
-						${article.title }
-					</div>
-					<div id="article_info">
-						${article. createddate}
-					</div>
-					<div id="article_text">
-						${articleContent }
+					<div class="article_write">
+						<p>
+							<label for="articleTitle">
+								<strong>Title:</strong>
+							</label>
+							<br/>
+							<input type="text" size="70" maxlength="100"  name="articleTitle" id="articleTitle"  value="${article.title }"/>
+						</p>
+						<p>
+							<label for="articleContent">
+								<strong>Content:</strong>
+							</label>
+							<textarea class="ckeditor" name="articleContent"  id="articleContent">${articleContent }</textarea>
+						</p>
+						<div style="margin-top: 10px;">
+							<p>
+									<input  type="submit" value="Post Article" style="font-weight: bold;" />
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- END Wrapper -->

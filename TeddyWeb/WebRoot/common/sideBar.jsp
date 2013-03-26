@@ -14,8 +14,7 @@
 			<!--home tag -->
 			<a href="index.php"> </a>
 		</div>
-		<p class="slogantext">123</p>
-		<p class="slogantext-small">(Teddy&Shall)</p>
+		<p class="slogantext"><a href="${basePath }index.do">Teddy&Shall</a></p>
 		<p>&nbsp;</p>
 		<div id="sidebar">
 			<ul>

@@ -40,6 +40,7 @@
 								<h4>
 									<!-- BEGIN item's title -->
 									<a href="${basePath }showTeddyArticle.do?id=${article[0]}" class="post_title"><s:property value='#article[1]'/></a>
+									<a href="${basePath }editTeddyArticle.do?id=${article[0] }">(edit)</a>
 								</h4>
 							</div>
 							<!-- BEGIN item's content -->
@@ -82,6 +83,7 @@
 								<h4>
 									<!-- BEGIN item's title -->
 									<a href="${basePath }showShallArticle.do?id=${sa[0]}" class="post_title"><s:property value='#sa[1]'/></a>
+									<a href="${basePath }editShallArticle.do?id=${article[0] }">(edit)</a>
 								</h4>
 							</div>
 							<!-- BEGIN item's content -->

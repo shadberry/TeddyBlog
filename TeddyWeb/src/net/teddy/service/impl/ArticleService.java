@@ -46,7 +46,7 @@ public class ArticleService implements IService{
 	}
 	
 	/**
-	 * save an article and it's tags
+	 * save an article and it's tags after create it
 	 * @param creator
 	 * @param title
 	 * @param content
@@ -78,6 +78,67 @@ public class ArticleService implements IService{
 			keyDAO.save(key);
 			if (key.getId() <=0) {
 				throw new Exception(CommonUtil.replaceArgs("Tag：{0}, 返回ID不存在，创建失败", tag));
+			}
+		}
+		return article.getId();
+	}
+	
+	/**
+	 * save an article and it's tags after edit it 
+	 * @param articleId
+	 * @param modifier
+	 * @param title
+	 * @param content
+	 * @param tags
+	 * @return
+	 * @throws Exception
+	 */
+	public Integer saveArticleInfo(Integer articleId, 
+			Integer modifier, String title, String content, List<String> tags) throws Exception {
+		//save article
+		TArticle article = articleDAO.findById(articleId);
+		Timestamp currentTs = new Timestamp(System.currentTimeMillis()); 
+		article.setTitle(title);
+		article.setContent(Hibernate.createBlob(content.getBytes()));
+		article.setModifierId(modifier);
+		article.setModifydate(currentTs);
+		
+		if (article.getId() <=0) {
+			throw new Exception(CommonUtil.replaceArgs("Article：{0}, 返回ID不存在，创建失败", title));
+		}
+		
+		//find tags by article id
+		List<TKeyword> tagList = keyDAO.findByArticleid(articleId);
+		
+		//delete the Tag that not in the tags, 
+		TKeyword key = null;
+		for (TKeyword dbKey:  tagList) {
+			key = null;
+			for (String tag : tags) {
+				if (dbKey.getKeyword().equals(tag)) {
+					key = dbKey;
+					break;
+				}
+			}
+			if (key == null) {
+				keyDAO.delete(dbKey);
+			}
+		}
+
+		//add the Tag that not in tagList but exist in tags
+		for (String tag : tags) {
+			key =null;
+			for (TKeyword dbKey:  tagList) {
+				if (dbKey.getKeyword().equals(tag)) {
+					key = dbKey;
+					break;
+				}
+			}
+			if (key == null) {
+				key = new TKeyword();
+				key.setArticleid(article.getId());
+				key.setKeyword(tag);
+				keyDAO.save(key);
 			}
 		}
 		return article.getId();
