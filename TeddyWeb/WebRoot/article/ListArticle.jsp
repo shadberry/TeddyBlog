@@ -24,7 +24,7 @@
 		</div>
 		<div id="content_home">
 			<div id="home_teddyside">
-				<div><h3><a href="${basePath }writeTeddyArticle.do">New Article</a></h3></div>
+				<div><h3><a href="${basePath }writeArticle.do?userId=1">New Article</a></h3></div>
 				<!-- The Loop -->
 				<s:iterator status="status" value="#request.teddyArticleList"  id="article">
 					<s:if test="#status.odd">
@@ -39,8 +39,8 @@
 							<div class="post_title">
 								<h4>
 									<!-- BEGIN item's title -->
-									<a href="${basePath }showTeddyArticle.do?id=${article[0]}" class="post_title"><s:property value='#article[1]'/></a>
-									<a href="${basePath }editTeddyArticle.do?id=${article[0] }">(edit)</a>
+									<a href="${basePath }showArticle.do?id=${article[0]}" class="post_title"><s:property value='#article[1]'/></a>
+									<a href="${basePath }editArticle.do?id=${article[0] }">(edit)</a>
 								</h4>
 							</div>
 							<!-- BEGIN item's content -->
@@ -67,7 +67,7 @@
 			</s:include>
 
 			<div id="home_shallside">
-				<div><h3>New Article</h3></div>
+				<div><h3><a href="${basePath }writeArticle.do?userId=2">New Article</a></h3></div>
 				<!-- The Loop -->
 				<s:iterator status="status" value="#request.shallArticleList"  id="sa">
 					<s:if test="#status.odd">
@@ -82,8 +82,8 @@
 							<div class="post_title">
 								<h4>
 									<!-- BEGIN item's title -->
-									<a href="${basePath }showShallArticle.do?id=${sa[0]}" class="post_title"><s:property value='#sa[1]'/></a>
-									<a href="${basePath }editShallArticle.do?id=${article[0] }">(edit)</a>
+									<a href="${basePath }showArticle.do?id=${sa[0]}" class="post_title"><s:property value='#sa[1]'/></a>
+									<a href="${basePath }editArticle.do?id=${sa[0] }">(edit)</a>
 								</h4>
 							</div>
 							<!-- BEGIN item's content -->

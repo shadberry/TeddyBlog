@@ -28,7 +28,7 @@
 		<!-- BEGIN Main Container -->
 		<div id="content_shall_home">
 			<!-- BEGIN Shall Content -->
-			<form action="${basePath }saveShallArticle.do" method="post">
+			<form action="${basePath }saveArticle.do" method="post">
 				<div id="home_shall_article">
 					<div class="article_write">
 						<p>
@@ -44,11 +44,19 @@
 							</label>
 							<textarea class="ckeditor" name="articleContent"  id="articleContent"></textarea>
 						</p>
+						<p>
+							<label for="articleTags">
+								<strong>Tags (Split by space):</strong>
+							</label>
+							<br/>
+							<input type="text" size="70" maxlength="100"  name="articleTags" id="articleTags" />
+						</p>
 						<div style="margin-top: 10px;">
 							<p>
 									<input  type="submit" value="Post Article" style="font-weight: bold;" />
 							</p>
 						</div>
+						<input type="hidden" id="userId" name="userId" value="${userId}" />
 					</div>
 				</div>
 			</form>

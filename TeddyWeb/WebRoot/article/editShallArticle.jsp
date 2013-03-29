@@ -32,7 +32,7 @@
 				<s:param name="sideBarId" value="'home_shall_bar'" ></s:param>
 			</s:include>
 			<!-- BEGIN Shall Content -->
-			<form action="${basePath }saveEditShallArticle.do" method="post">
+			<form action="${basePath }saveEditArticle.do" method="post">
 				<div id="home_shall_article">
 					<div class="article_write">
 						<p>
@@ -48,11 +48,20 @@
 							</label>
 							<textarea class="ckeditor" name="articleContent"  id="articleContent">${articleContent }</textarea>
 						</p>
+						<p>
+							<label for="articleTags">
+								<strong>Tags:</strong>
+							</label>
+							<br/>
+							<input type="text" size="70" maxlength="100"  name="articleTags" id="articleTags"  value="${articleTags }"/>
+						</p>
 						<div style="margin-top: 10px;">
 							<p>
 									<input  type="submit" value="Post Article" style="font-weight: bold;" />
 							</p>
 						</div>
+						<input type="hidden" id="id" name="id" value="${article.id}" />
+						<input type="hidden" id="userId" name="userId" value="${userId}" />
 					</div>
 				</div>
 			</form>

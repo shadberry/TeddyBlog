@@ -61,9 +61,10 @@
 			<result name="success">/article/ListArticle.jsp</result>
 		</action>
 		<action name="*Article"  class="net.teddy.control.action.ArticleAction" method="{1}">
-			<result name="success">/article/{1}Article.jsp</result>
+			<result name="Teddysuccess">/article/{1}TeddyArticle.jsp</result>
+			<result name="Shallsuccess">/article/{1}ShallArticle.jsp</result>
 			<result name="saved" type="redirectAction">
-				<param name="actionName">showTeddyArticle</param>
+				<param name="actionName">showArticle</param>
      			<param name="id">${id}</param> 
 			</result>
 		</action>

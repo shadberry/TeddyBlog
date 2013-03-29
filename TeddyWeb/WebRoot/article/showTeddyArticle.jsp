@@ -39,6 +39,9 @@
 					<div id="article_text">
 						${articleContent }
 					</div>
+					<p>
+						标签：${articleTags }
+					</p>
 				</div>
 			</div>
 			<!-- BEGIN Side Bar -->
