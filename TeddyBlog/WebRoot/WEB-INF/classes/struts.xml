@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- define the struts suffix, if there are more than one then separate by ',' .  -->
+    <constant name="struts.action.extension" value="do,action"></constant>
+
+    <!-- Set default character encoding for HttpServletRequest.setCharacterEncoding,
+     and output of freemarker and velocity -->
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+    <!-- Set the browser cache the content or not, false is better for develop. -->
+    <constant name="struts.serve.static.browserCache" value="false" />
+
+    <!--
+    	Define after struts.xml had been, system will auto reload it or not,
+    	default is false, but true is better for develop.
+    -->
+    <constant name="struts.configuration.xml.reload" value="true" />
+
+    <!-- In Develop model, it will print more information -->
+    <constant name="struts.devMode" value="true" />
+
+    <!-- Default theme  -->
+    <constant name="struts.ui.theme" value="simple" />
+   
+    <!-- Define struts2 support dynamic method invoke or not, default is true  -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+   
+    <!-- Set the upload file length limit -->
+    <constant name="struts.multipart.maxSize" value="10701096" /> 
+    
+	<package name="default" extends="struts-default">
+		<interceptors>
+			<!-- Authorization interceptor -->
+			<interceptor name="sessionInterceptor" 
+				class="net.teddy.control.interceptor.SessionInterceptor" />
+			<!-- Exception Catcher interceptor -->
+			<interceptor name="exceptionInterceptor" 
+				class="net.teddy.control.interceptor.ExceptionInterceptor" />
+			<!-- Auth verify interceptor -->
+			<interceptor name="authInterceptor" 
+				class="net.teddy.control.interceptor.AuthInterceptor"></interceptor>
+				
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="exceptionInterceptor" />
+				<interceptor-ref name="sessionInterceptor" />
+				<interceptor-ref name="authInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- Default Interceptor -->
+		<default-interceptor-ref name="authStack"/>
+		<!-- Default result -->
+		<global-results>  
+			<result name="error">/error.jsp</result> 
+		</global-results>
+		
+		<!-- actions -->
+		<action name="index"  class="net.teddy.control.action.ListArticleAction" method="listAll">
+			<result name="success">/article/ListArticle.jsp</result>
+		</action>
+		<action name="*Article"  class="net.teddy.control.action.ArticleAction" method="{1}">
+			<result name="Teddysuccess">/article/{1}TeddyArticle.jsp</result>
+			<result name="Shallsuccess">/article/{1}ShallArticle.jsp</result>
+			<result name="saved" type="redirectAction">
+				<param name="actionName">showArticle</param>
+     			<param name="id">${id}</param> 
+			</result>
+		</action>
+	</package>
+</struts>    

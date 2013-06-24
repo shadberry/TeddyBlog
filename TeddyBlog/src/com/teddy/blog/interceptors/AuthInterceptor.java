@@ -1,4 +1,4 @@
-package net.teddy.control.interceptor;
+package com.teddy.blog.interceptors;
 
 import java.util.Map;
 
@@ -21,9 +21,9 @@ public class AuthInterceptor implements Interceptor, SessionAware {
 
 	@Override
 	public String intercept(ActionInvocation invoc) throws Exception {
-//		System.out.println("Action��"+invoc.getAction().getClass().getName());  
-//		System.out.println("Struts2 �����õ�Action��"+invoc.getProxy().getActionName());  
-//		System.out.println("���õķ�����"+invoc.getProxy().getMethod()); 
+		System.out.println("Action��"+invoc.getAction().getClass().getName());  
+		System.out.println("Struts2 �����õ�Action��"+invoc.getProxy().getActionName());  
+		System.out.println("���õķ�����"+invoc.getProxy().getMethod()); 
 		return invoc.invoke();
 	}
 

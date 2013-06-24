@@ -22,10 +22,11 @@ public class Log4jInitServlet extends HttpServlet {
 	 * @throws ServletException if an error occurs
 	 */
 	public void init() throws ServletException {
-		String path = getServletContext().getRealPath("/");
+		String path = getServletContext().getRealPath("");
 		String file = getInitParameter("log4j");
 		if(file != null){
 			PropertyConfigurator.configure(path+file);
+			System.out.println(path + file);
 		}
 	}
 

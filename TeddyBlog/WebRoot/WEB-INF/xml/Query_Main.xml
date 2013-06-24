@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<module id="article">
+		<sql id="getAllArticle">
+			select ID,
+						TITLE,
+						SUMMARY,
+						CONTENT,
+						CREATEDDATE,
+						CREATORID,
+						MODIFYDATE,
+						MODIFIERID
+			from t_article
+			order by {0} {1} ;
+		</sql>
+		<sql id="getAllArticleByCreator">
+			select ID,
+						TITLE,
+						SUMMARY,
+						CONTENT,
+						CREATEDDATE,
+						CREATORID,
+						MODIFYDATE,
+						MODIFIERID
+			from t_article
+			where creatorId = '{2}'
+			order by {0} {1} ;
+		</sql>
+	</module>
+
+</root>
