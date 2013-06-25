@@ -24,7 +24,7 @@
 		<!--right panel start -->
 		<div id="right">
 			<!-- BEGIN Teddy Content -->
-			<form action="${basePath }saveEditArticle.do" method="post">
+			<form action="${basePath }article!saveEdit.do" method="post">
 				<div id="home_teddy_article">
 					<div class="article_write">
 						<p>

@@ -3,14 +3,13 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-System.out.println(session.getAttribute("currentUser"));
 %>
 <!--left panel start -->
 		<a href="index.html"><img src="${basePath}images/logo.gif"
 			alt="Iinfinite" title="Iinfinite" width="197" height="64" border="0" />
 		</a>
 		<p class="toptxt">Phasellus consequat</p>
-		<div id="left">
+		<div id="left" class="leftSideBar">
 			<ul class="menu">
 				<li><a href="${basePath }index.do" class="home"></a></li>
 				<li><a href="#" class="about"></a></li>

@@ -92,7 +92,6 @@ public class ArticleAction {
 				}
 			}
 		}
-		System.out.println("@@@ id is " + id);
 		articleService.saveArticleInfo(id, userId, articleTitle, articleContent, tagList);
 		return "saved";
 	}

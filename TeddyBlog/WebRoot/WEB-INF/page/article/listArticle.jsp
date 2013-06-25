@@ -36,7 +36,7 @@
 				</div>
 				<hr />
 				<div class="articleContent">
-					<p>${article[3] }</p>
+					${article[3] }
 				</div>
 				<div class="rm">
 					<a href="${basePath }article!show.do?id=${article[0]}">read more</a>
