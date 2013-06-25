@@ -33,13 +33,13 @@
 		<interceptors>
 			<!-- Authorization interceptor -->
 			<interceptor name="sessionInterceptor" 
-				class="net.teddy.control.interceptor.SessionInterceptor" />
+				class="com.teddy.blog.interceptors.SessionInterceptor" />
 			<!-- Exception Catcher interceptor -->
 			<interceptor name="exceptionInterceptor" 
-				class="net.teddy.control.interceptor.ExceptionInterceptor" />
+				class="com.teddy.blog.interceptors.ExceptionInterceptor" />
 			<!-- Auth verify interceptor -->
 			<interceptor name="authInterceptor" 
-				class="net.teddy.control.interceptor.AuthInterceptor"></interceptor>
+				class="com.teddy.blog.interceptors.AuthInterceptor"></interceptor>
 				
 			<interceptor-stack name="authStack">
 				<interceptor-ref name="exceptionInterceptor" />
@@ -57,16 +57,20 @@
 		</global-results>
 		
 		<!-- actions -->
-		<action name="index"  class="net.teddy.control.action.ListArticleAction" method="listAll">
-			<result name="success">/article/ListArticle.jsp</result>
+		<action name="index"  class="com.teddy.blog.action.ListArticleAction" method="listAll">
+			<result name="success">/WEB-INF/page/article/listArticle.jsp</result>
 		</action>
-		<action name="*Article"  class="net.teddy.control.action.ArticleAction" method="{1}">
-			<result name="Teddysuccess">/article/{1}TeddyArticle.jsp</result>
-			<result name="Shallsuccess">/article/{1}ShallArticle.jsp</result>
-			<result name="saved" type="redirectAction">
-				<param name="actionName">showArticle</param>
-     			<param name="id">${id}</param> 
-			</result>
+		<action name="article"  class="com.teddy.blog.action.ArticleAction" >
+			<result name="show">/WEB-INF/page/article/showArticle.jsp</result>
+			<result name="write">/WEB-INF/page/article/writeArticle.jsp</result>
+			<result name="edit">/WEB-INF/page/article/editArticle.jsp</result>
+			<result name="saved" type="redirectAction">article!show?id=${id}</result>
+		</action>
+		<action name="common"  class="com.teddy.blog.action.CommonAction" >
+			<result name="contact">/WEB-INF/page/common/contact.jsp</result>
+		</action>
+		<action name="sign" class="com.teddy.blog.action.SignAction">
+			<result name="index" type="redirectAction">index</result>
 		</action>
 	</package>
 </struts>    

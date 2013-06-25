@@ -6,6 +6,35 @@
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   <display-name></display-name>	
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>doPreIndex.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>Log4jInit</servlet-name>
+    <servlet-class>com.teddy.blog.servlet.Log4jInitServlet</servlet-class>
+    <init-param>
+      <param-name>log4j</param-name>
+      <param-value>/WEB-INF/log4j.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>XmlInit</servlet-name>
+    <servlet-class>com.teddy.blog.servlet.XmlInitServlet</servlet-class>
+    <init-param>
+      <param-name>xmlPath</param-name>
+      <param-value>/WEB-INF/xml/Query_Main.xml</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>
+  		org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+  	</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>struts2</filter-name>
+	<url-pattern>*.do</url-pattern>
+	<url-pattern>*.action</url-pattern>
+  </filter-mapping>
 </web-app>

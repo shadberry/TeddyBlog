@@ -1,6 +1,7 @@
 package com.teddy.blog.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.teddy.blog.bean.TUser;
@@ -19,5 +20,14 @@ public class UserService implements IService {
 	
 	public TUser findById(Integer id) {
 		return userDAO.findById(id);
+	}
+	
+	public TUser findByUsername(String username) {
+		List<TUser> list = userDAO.findByUsername(username);
+		if (list.size() > 0) {
+			return list.get(0);
+		} else {
+			return null;
+		}
 	}
 }

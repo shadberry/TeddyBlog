@@ -22,7 +22,7 @@ public class ArticleService implements IService{
 	 * find all articles order by created date
 	 * @return
 	 */
-	public List<TArticle> findAll() {
+	public List<Object[]> findAll() {
 		return articleDAO.queryBySql(IBaseHibernateDAO.MODULE_ARTICLE, 
 				"getAllArticle", "CREATEDDATE", "DESC");
 	}
@@ -31,7 +31,7 @@ public class ArticleService implements IService{
 	 * find all articles order by creator and created date
 	 * @return
 	 */
-	public List<TArticle> findAllByCreator(Integer id) {
+	public List<Object[]> findAllByCreator(Integer id) {
 		return articleDAO.queryBySql(IBaseHibernateDAO.MODULE_ARTICLE, 
 				"getAllArticleByCreator", "CREATEDDATE", "DESC", id.toString());
 	}

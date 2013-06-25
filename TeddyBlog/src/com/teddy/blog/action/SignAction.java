@@ -1,26 +1,34 @@
 package com.teddy.blog.action;
 
-import java.util.Map;
+import org.apache.struts2.ServletActionContext;
 
-import org.apache.struts2.interceptor.SessionAware;
+import com.teddy.blog.bean.TUser;
+import com.teddy.blog.service.UserService;
 
-public class SignAction implements SessionAware{
+public class SignAction{
+	private static UserService userService = new UserService();
 	
 	//in: user account name
 	private String username;
 	//in: user password
 	private String password;
 	
-	Map<String, Object> session;
-	
 	/**
 	 * login
 	 * @return
 	 * @throws Exception
 	 */
-	public String signIn() throws Exception {
-		
-		return "sucess";
+	public String in() throws Exception {
+		System.out.println("@" +username);
+		System.out.println(password);
+		ServletActionContext.getRequest().getSession().removeAttribute("currentUser");
+		TUser currentUser = userService.findByUsername(username);
+		if (currentUser != null && currentUser.getPassword().equals(password)) {
+			 ServletActionContext.getRequest().getSession().setAttribute("currentUser", currentUser);
+			 System.out.println(ServletActionContext.getRequest().getSession().getAttribute("currentUser"));
+			 System.out.println("登录成功");
+		}
+		return "index";
 	}
 	
 	/**
@@ -28,9 +36,9 @@ public class SignAction implements SessionAware{
 	 * @return
 	 * @throws Exception
 	 */
-	public String signOut() throws Exception {
-		
-		return "sucess";
+	public String out() throws Exception {
+		ServletActionContext.getRequest().getSession().removeAttribute("currentUser");
+		return "index";
 	}
 
 	public String getUsername() {
@@ -41,8 +49,14 @@ public class SignAction implements SessionAware{
 		return password;
 	}
 
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+
 }

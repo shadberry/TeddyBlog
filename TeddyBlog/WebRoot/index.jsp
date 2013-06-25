@@ -26,7 +26,7 @@
 		<!--left panel start -->
 		<div id="left">
 			<ul class="menu">
-				<li><a href="#" class="��ҳ"></a></li>
+				<li><a href="#" class="home"></a></li>
 				<li><a href="#" class="about"></a></li>
 			</ul>
 			<p class="leftTop"></p>
@@ -53,7 +53,8 @@
 		<!--left panel end -->
 		<!--right panel start -->
 		<div id="right">
-			<h2 class="why">why infinite extent</h2>
+			<h2 class="why">why infinite extent123</h2>
+			
 			<p class="rightTxt1">
 				<span>Morbi sollicitudin, augue a fringilla</span> pharetra, tellus
 				risus malesuada nisi, id dignissim eros magna eget erat. Proin sit

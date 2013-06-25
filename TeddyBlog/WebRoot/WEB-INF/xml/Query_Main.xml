@@ -2,15 +2,18 @@
 <root>
 	<module id="article">
 		<sql id="getAllArticle">
-			select ID,
+			select a.ID,
 						TITLE,
 						SUMMARY,
 						CONTENT,
 						CREATEDDATE,
 						CREATORID,
+						u.Name,
 						MODIFYDATE,
 						MODIFIERID
-			from t_article
+			from t_article a
+			join	t_user u
+			  on  a.creatorid = u.id
 			order by {0} {1} ;
 		</sql>
 		<sql id="getAllArticleByCreator">

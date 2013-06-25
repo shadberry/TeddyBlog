@@ -11,7 +11,6 @@ import com.teddy.blog.service.UserService;
 public class ArticleAction {
 	
 	private static ArticleService  articleService = new ArticleService(); 
-	private static UserService userService = new UserService();
 	
 	/**
 	 * Show specify article
@@ -24,7 +23,7 @@ public class ArticleAction {
 			article.setReadcount((article.getReadcount() == null ? 0 :  article.getReadcount()) + 1 );
 			articleContent = CommonUtil.convertBlobToString(article.getContent());
 			userName = UserService.HOST_MAP.get(article.getCreatorId());
-			return userName+"success";
+			return "show";
 		} else {
 			return "error";
 		}
@@ -37,7 +36,7 @@ public class ArticleAction {
 	 */
 	public String write() throws Exception {
 		userName = UserService.HOST_MAP.get(userId);
-		return userName+"success";
+		return "write";
 	}
 	
 	/**
@@ -69,10 +68,9 @@ public class ArticleAction {
 		if (id != null && id > 0) {
 			article = articleService.findById(id);
 			articleContent = CommonUtil.convertBlobToString(article.getContent());
-			
 			userName = UserService.HOST_MAP.get(article.getCreatorId());
 			userId = article.getCreatorId();
-			return userName+"success";
+			return "edit";
 		} else {
 			return "error";
 		}
@@ -98,110 +96,6 @@ public class ArticleAction {
 		articleService.saveArticleInfo(id, userId, articleTitle, articleContent, tagList);
 		return "saved";
 	}
-//	/**
-//	 * Show specify article
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String showTeddy() throws Exception {
-//		if (id != null && id > 0) {
-//			article.setReadcount(article.getReadcount() + 1 );
-//			article = articleService.findById(id);
-//			articleContent = CommonUtil.convertBlobToString(article.getContent());
-//		}
-//		return "success";
-//	}
-//	
-//	/**
-//	 * Show write Teddy's article page
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String writeTeddy() throws Exception {
-//		return "success";
-//	}
-//	
-//	/**
-//	 * Save Teddy's article and show it
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String saveTeddy() throws Exception {
-//		this.id = articleService.saveArticleInfo(1, articleTitle, articleContent, new ArrayList<String>());
-//		return "saved";
-//	}
-//	
-//	/**
-//	 * Show edit Teddy's article page
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String editTeddy() throws Exception {
-//		if (id != null && id > 0) {
-//			article = articleService.findById(id);
-//			articleContent = CommonUtil.convertBlobToString(article.getContent());
-//		}
-//		return "success";
-//	}
-//	/**
-//	 * Save Teddy's article and show it after modify it
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String saveEditTeddy() throws Exception {
-//		articleService.saveArticleInfo(id, 1, articleTitle, articleContent, new ArrayList<String>());
-//		return "saved";
-//	}
-	
-//	/**
-//	 * Show specify article
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String showShall() throws Exception {
-//		if (id != null && id > 0) {
-//			article.setReadcount(article.getReadcount() + 1 );
-//			article = articleService.findById(id);
-//			articleContent = CommonUtil.convertBlobToString(article.getContent());
-//		}
-//		return "success";
-//	}
-//	
-//	public String writeShall() throws Exception {
-//		return "success";
-//	}
-//	
-//	/**
-//	 * Save Teddy's article and show it
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String saveShall() throws Exception {
-//		this.id = articleService.saveArticleInfo(2, articleTitle, articleContent, new ArrayList<String>());
-//		return "saved";
-//	}
-//	
-//	/**
-//	 * Show edit Teddy's article page
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String editShall() throws Exception {
-//		if (id != null && id > 0) {
-//			article = articleService.findById(id);
-//			articleContent = CommonUtil.convertBlobToString(article.getContent());
-//		}
-//		return "success";
-//	}
-//	/**
-//	 * Save Teddy's article and show it after modify it
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public String saveEditShall() throws Exception {
-//		articleService.saveArticleInfo(id, 2, articleTitle, articleContent, new ArrayList<String>());
-//		return "saved";
-//	}
 
 	/*******************************Arguments***************************************/
 	//in|out: owner id

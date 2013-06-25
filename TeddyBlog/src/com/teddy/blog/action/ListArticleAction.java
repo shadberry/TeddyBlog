@@ -1,7 +1,10 @@
 package com.teddy.blog.action;
 
+import java.sql.Blob;
+import java.util.Arrays;
 import java.util.List;
 
+import com.teddy.blog.commons.CommonUtil;
 import com.teddy.blog.service.ArticleService;
 
 public class ListArticleAction{
@@ -9,9 +12,7 @@ public class ListArticleAction{
 	private static ArticleService  articleService = new ArticleService(); 
 	
 	//out: teddy article list
-	private List teddyArticleList;
-	//out: shall article list
-	private List shallArticleList;
+	private List<Object[]> articleList;
 	
 	/**
 	 * List all articles of two owner.
@@ -20,16 +21,15 @@ public class ListArticleAction{
 	 */
 	public String listAll() throws Exception {
 		String success = "success";
-		teddyArticleList  = articleService.findAllByCreator(1);
-		shallArticleList  = articleService.findAllByCreator(2);
+		articleList  = articleService.findAll();
+		for (Object[] object : articleList) {
+			object[3] = CommonUtil.convertBlobToString((Blob) object[3]);
+		}
 		return success;
 	}
 	
-	public List getTeddyArticleList() {
-		return teddyArticleList;
-	}
-	public List getShallArticleList() {
-		return shallArticleList;
+	public List getArticleList() {
+		return articleList;
 	}
 	
 }

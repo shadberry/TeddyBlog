@@ -12,7 +12,7 @@
 			com.teddy.blog.dao.dialect.BlobMySQLDialect
 		</property>
 		<property name="connection.url">
-			jdbc:mysql://localhost:3306/blog
+			jdbc:mysql://localhost:3306/blog?useOldAliasMetadataBehavior=true
 		</property>
 		<property name="connection.username">teddy</property>
 		<property name="connection.password">teddy</property>

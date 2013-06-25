@@ -21,9 +21,9 @@ public class AuthInterceptor implements Interceptor, SessionAware {
 
 	@Override
 	public String intercept(ActionInvocation invoc) throws Exception {
-		System.out.println("Action��"+invoc.getAction().getClass().getName());  
-		System.out.println("Struts2 �����õ�Action��"+invoc.getProxy().getActionName());  
-		System.out.println("���õķ�����"+invoc.getProxy().getMethod()); 
+//		System.out.println("Action class is "+invoc.getAction().getClass().getName());  
+//		System.out.println("Action name is "+invoc.getProxy().getActionName());  
+//		System.out.println("Method name is "+invoc.getProxy().getMethod()); 
 		return invoc.invoke();
 	}
 
