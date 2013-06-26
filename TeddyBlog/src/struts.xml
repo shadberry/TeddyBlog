@@ -53,7 +53,7 @@
 		<default-interceptor-ref name="authStack"/>
 		<!-- Default result -->
 		<global-results>  
-			<result name="error">/error.jsp</result> 
+			<result name="error" type="redirect">/error.jsp</result> 
 		</global-results>
 		
 		<!-- actions -->

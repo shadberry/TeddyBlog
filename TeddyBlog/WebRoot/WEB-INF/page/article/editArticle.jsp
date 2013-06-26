@@ -54,7 +54,6 @@
 							</p>
 						</div>
 						<input type="hidden" id="id" name="id" value="${article.id}" />
-						<input type="hidden" id="userId" name="userId" value="${userId}" />
 					</div>
 				</div>
 			</form>

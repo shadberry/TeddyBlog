@@ -19,14 +19,10 @@ public class SignAction{
 	 * @throws Exception
 	 */
 	public String in() throws Exception {
-		System.out.println("@" +username);
-		System.out.println(password);
 		ServletActionContext.getRequest().getSession().removeAttribute("currentUser");
 		TUser currentUser = userService.findByUsername(username);
 		if (currentUser != null && currentUser.getPassword().equals(password)) {
 			 ServletActionContext.getRequest().getSession().setAttribute("currentUser", currentUser);
-			 System.out.println(ServletActionContext.getRequest().getSession().getAttribute("currentUser"));
-			 System.out.println("登录成功");
 		}
 		return "index";
 	}

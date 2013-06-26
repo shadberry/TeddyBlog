@@ -2,15 +2,21 @@ package com.teddy.blog.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.teddy.blog.action.base.BaseAction;
 import com.teddy.blog.bean.TArticle;
+import com.teddy.blog.bean.TUser;
 import com.teddy.blog.commons.CommonUtil;
 import com.teddy.blog.service.ArticleService;
-import com.teddy.blog.service.UserService;
 
-public class ArticleAction {
+public class ArticleAction extends BaseAction implements SessionAware {
 	
 	private static ArticleService  articleService = new ArticleService(); 
+	
+	private Map<String, Object> session;
 	
 	/**
 	 * Show specify article
@@ -22,7 +28,6 @@ public class ArticleAction {
 			article = articleService.findById(id);
 			article.setReadcount((article.getReadcount() == null ? 0 :  article.getReadcount()) + 1 );
 			articleContent = CommonUtil.convertBlobToString(article.getContent());
-			userName = UserService.HOST_MAP.get(article.getCreatorId());
 			return "show";
 		} else {
 			return "error";
@@ -35,7 +40,6 @@ public class ArticleAction {
 	 * @throws Exception
 	 */
 	public String write() throws Exception {
-		userName = UserService.HOST_MAP.get(userId);
 		return "write";
 	}
 	
@@ -45,7 +49,7 @@ public class ArticleAction {
 	 * @throws Exception
 	 */
 	public String save() throws Exception {
-		userName = UserService.HOST_MAP.get(userId);
+		TUser currentUser = (TUser) session.get(SESSION_USER_KEY);
 		String[] tagArray = articleTags.trim().split(" ");
 		List<String> tagList = new ArrayList<String>();
 		if (tagArray != null && tagArray.length > 0) {
@@ -55,7 +59,7 @@ public class ArticleAction {
 				}
 			}
 		}
-		this.id = articleService.saveArticleInfo(userId, articleTitle, articleContent, tagList);
+		this.id = articleService.saveArticleInfo(currentUser.getId(), articleTitle, articleContent, tagList);
 		return "saved";
 	}
 	
@@ -68,8 +72,6 @@ public class ArticleAction {
 		if (id != null && id > 0) {
 			article = articleService.findById(id);
 			articleContent = CommonUtil.convertBlobToString(article.getContent());
-			userName = UserService.HOST_MAP.get(article.getCreatorId());
-			userId = article.getCreatorId();
 			return "edit";
 		} else {
 			return "error";
@@ -81,8 +83,7 @@ public class ArticleAction {
 	 * @throws Exception
 	 */
 	public String saveEdit() throws Exception {
-		userName = UserService.HOST_MAP.get(userId);
-		
+		TUser currentUser = (TUser) session.get(SESSION_USER_KEY);
 		String[] tagArray = articleTags.trim().split(" ");
 		List<String> tagList = new ArrayList<String>();
 		if (tagArray != null && tagArray.length > 0) {
@@ -92,7 +93,7 @@ public class ArticleAction {
 				}
 			}
 		}
-		articleService.saveArticleInfo(id, userId, articleTitle, articleContent, tagList);
+		articleService.saveArticleInfo(id, currentUser.getId(), articleTitle, articleContent, tagList);
 		return "saved";
 	}
 
@@ -156,6 +157,11 @@ public class ArticleAction {
 
 	public void setArticleTags(String articleTags) {
 		this.articleTags = articleTags;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		session = arg0;
 	}
 	
 }

@@ -49,7 +49,6 @@
 									style="font-weight: bold;" />
 							</p>
 						</div>
-						<input type="hidden" id="userId" name="userId" value="${userId}" />
 					</div>
 				</div>
 			</form>

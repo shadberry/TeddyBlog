@@ -5,8 +5,8 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!--left panel start -->
-		<a href="index.html"><img src="${basePath}images/logo.gif"
-			alt="Iinfinite" title="Iinfinite" width="197" height="64" border="0" />
+		<a href="index.html"><img src="${basePath}images/logo.png"
+			alt="Teddy & Shall" title="Teddy & Shall"  border="0" />
 		</a>
 		<p class="toptxt">Phasellus consequat</p>
 		<div id="left" class="leftSideBar">
@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</s:if>
 			<s:else>
 				<p>
-				You Already Log in, welcom!
+				You already sign in, welcome!
 				</p>
 				<br/>
 				<input type="button" name="logOut" value="Log out"   onclick="javascript:window.location.href='${basePath }sign!out.do'"/>

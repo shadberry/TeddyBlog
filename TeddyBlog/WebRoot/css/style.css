@@ -4,7 +4,8 @@ body{
 	padding:0;
 	margin:0;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
-	background:url(../images/pattern.gif) 0 0 repeat-x #fff;
+	/*background:url(../images/pattern.gif) 0 0 repeat-x #fff;*/
+	background:repeat-x #fff;
 	color:#000;
 }
 div, h1, h2, h3, h4, p, form, label, input, textarea, img, span{
@@ -20,7 +21,7 @@ div, h1, h2, h3, h4, p, form, label, input, textarea, img, span{
 
 /*------------------------------------------------body--------------------*/
 #body{
-	background:url(../images/header.jpg) 0 0 no-repeat;
+	background:url(../images/header.png) 0 0 no-repeat;
 	width:920px;
 	margin:0 auto;
 	padding:36px 0 0 0;
@@ -40,6 +41,7 @@ div, h1, h2, h3, h4, p, form, label, input, textarea, img, span{
 	width:207px;
 	float:left;
 	padding:0;
+	padding-left:20px;
 	margin:0;
 }
 #left ul.menu{
